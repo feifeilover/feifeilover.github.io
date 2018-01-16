@@ -79,17 +79,19 @@
 
 
 
-<meta name="description" content="坚持做最好的自己">
+<meta name="description" content="什么是线程池：  为了避免系统频繁的创建和销毁线程，我们可以让创建的线程进行复用。在线程池中，总有那么几个活跃线程，当你需要使用线程时，可以从池子中随便拿一个空闲线程，当你完成工作时，并不着急关闭线程，而是将这个线程退回到池子，方便其他人使用。   java中的线程池是运用场景最多的并发框架，合理的使用线程池能够带来的3个好处:   第一：降低资源消耗； 第二：提高响应速度： 第三：提高线程的可管">
 <meta property="og:type" content="article">
 <meta property="og:title" content="我的第一篇文章">
 <meta property="og:url" content="http://yoursite.com/2018/01/16/我的第一篇文章/index.html">
 <meta property="og:site_name" content="菲菲博客">
-<meta property="og:description" content="坚持做最好的自己">
+<meta property="og:description" content="什么是线程池：  为了避免系统频繁的创建和销毁线程，我们可以让创建的线程进行复用。在线程池中，总有那么几个活跃线程，当你需要使用线程时，可以从池子中随便拿一个空闲线程，当你完成工作时，并不着急关闭线程，而是将这个线程退回到池子，方便其他人使用。   java中的线程池是运用场景最多的并发框架，合理的使用线程池能够带来的3个好处:   第一：降低资源消耗； 第二：提高响应速度： 第三：提高线程的可管">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-16T09:01:06.171Z">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5474409-4ef402811e8fd42c?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-01-16T12:46:40.712Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="我的第一篇文章">
-<meta name="twitter:description" content="坚持做最好的自己">
+<meta name="twitter:description" content="什么是线程池：  为了避免系统频繁的创建和销毁线程，我们可以让创建的线程进行复用。在线程池中，总有那么几个活跃线程，当你需要使用线程时，可以从池子中随便拿一个空闲线程，当你完成工作时，并不着急关闭线程，而是将这个线程退回到池子，方便其他人使用。   java中的线程池是运用场景最多的并发框架，合理的使用线程池能够带来的3个好处:   第一：降低资源消耗； 第二：提高响应速度： 第三：提高线程的可管">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/5474409-4ef402811e8fd42c?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -339,7 +341,48 @@
       
 
       
-        
+        <p><strong>什么是线程池：</strong></p>
+<ul>
+<li>为了避免系统频繁的创建和销毁线程，我们可以让创建的线程进行复用。在线程池中，总有那么几个活跃线程，当你需要使用线程时，可以从池子中随便拿一个空闲线程，当你完成工作时，并不着急关闭线程，而是将这个线程退回到池子，方便其他人使用。</li>
+</ul>
+<blockquote>
+<p>java中的线程池是运用场景最多的并发框架，合理的使用<strong>线程池能够带来的3个好处</strong>:</p>
+</blockquote>
+<ul>
+<li>第一：降低资源消耗；</li>
+<li>第二：提高响应速度：</li>
+<li>第三：提高线程的可管理性；</li>
+</ul>
+<blockquote>
+<p>为了更好的控制多线程，JDK提供了一套<strong><em>Executor框架</em></strong>，帮助开发人员进行线程控制，其本质就是一个线程池。</p>
+</blockquote>
+<p>如图：<br><img src="http://upload-images.jianshu.io/upload_images/5474409-4ef402811e8fd42c?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="这里写图片描述"></p>
+<ul>
+<li>以上成员均在java.util.concurrent包中，是JDK并发包的核心类。其中ThreadPoolExecutor表示一个线程池。Executors类扮演着线程池工厂的角色，通过Executors可以取得一个拥有特定功能的线程池。<br>ThreadPoolExecutor类实现Executor接口，因此通过这个接口，任何Runnable的对象都可以被ThreadPoolExecutor线程池调度。</li>
+</ul>
+<blockquote>
+<p>Executor框架提供了各种类型的线程池，以下有<strong>四种常用的工厂方法</strong>：</p>
+</blockquote>
+<ol>
+<li>newFixedThreadPool（）方法：该方法返回一个固定线程数量的线程池。它适用于负载比较重的服务器。</li>
+<li>newSingleThreadExecutor（）方法：该方法返回一个只有一个线程的线程池。适用于需要保证顺序地执行各个任务，并且在任意时间点，不会有多个线程是活动的应用场景。</li>
+<li>newCachedThreadPool（）方法：该方法返回一个可根据实际情况调整线程数量的线程池。适用于执行很多的短期异步任务的小程序，或是负载较轻的服务器。</li>
+<li>newSingleThreadScheduledExecutor（）方法：该方法返回一个ScheduledExecutorService对象，线程池大小为1.适用于需要单个后台线程执行周期任务，同时保证顺序地执行各个任务的应用场景。</li>
+</ol>
+<p><strong>线程池的使用：</strong></p>
+<ul>
+<li>通过ThreadPoolExecutor来创建一个线程池；</li>
+<li>可以使用两个方法向线程池提交任务：execute（）和submit（）;<br>execute（）方法用于提交不需要返回值的任务；<br>submit（）方法用于提交需要返回值的任务。</li>
+<li>可以通过线程池的shutdown或shutdownNow方法来关闭线程池。<br>shutdownNow尝试停止正在执行或暂停任务的线程；<br>shutdown只是将线程池的状态设置为SHUTDOWN状态，然后中断所有没有正在执行任务的线程。</li>
+</ul>
+<blockquote>
+<p>以下通过一段代码来展示线程池的应用：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">import java.util.concurrent.ExecutorService;</span><br><span class="line">import java.util.concurrent.Executors;</span><br><span class="line"></span><br><span class="line">public class ThreadPoolTest &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		ExecutorService threadPool = Executors.newFixedThreadPool(3);</span><br><span class="line">		for(int i=1;i&lt;=10;i++) &#123;</span><br><span class="line">			final int task = i;</span><br><span class="line">			threadPool.execute(new Runnable() &#123;</span><br><span class="line">				</span><br><span class="line">				@Override</span><br><span class="line">				public void run() &#123;</span><br><span class="line">					for(int j=1;j&lt;=10;j++) &#123;</span><br><span class="line">						try &#123;</span><br><span class="line">							Thread.sleep(20);</span><br><span class="line">						&#125; catch (InterruptedException e) &#123;</span><br><span class="line">							// TODO Auto-generated catch block</span><br><span class="line">							e.printStackTrace();</span><br><span class="line">						&#125;</span><br><span class="line">						System.out.println(Thread.currentThread().getName()+&quot;loop of&quot; +j +&quot;for task of&quot;+ task);</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;);</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(&quot;game over&quot;);</span><br><span class="line">		threadPool.shutdown();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>以上就是一个简单的小实例，非常适合新手学习线程池，其实线程池的实例还有好多，想多了解的可以在网上找到一大堆的资料以及源码，这里菲菲同学就不举例了，（因为我有好多点都不太懂呢，学习完全处于懵懂状态）我知道现在我写的东西特别的肤浅，如果大神们看到觉得特别幼稚的话，千万不要打击我哦。我会一步一步改进这些东西的。</p>
+</blockquote>
+
       
     </div>
     
