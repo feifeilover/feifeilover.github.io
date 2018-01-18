@@ -86,17 +86,17 @@
 
 
 
-<meta name="description" content="javascript定义函数1 . javascript中定义函数的操作语法： 123function 函数名称（参数）&amp;#123;	return[返回值];&amp;#125; 例子： 123456&amp;lt;script type=&quot;text/javascript&quot;&amp;gt;	function fun() &amp;#123;		alert(&quot;Hello World!&quot;);	&amp;#125;	fun();&amp;lt;/sc">
+<meta name="description" content="javascript事件处理1 . 什么是事件处理？  在页面上任何的操作都可以被称为事件源，而对每一个事件就可以进行自定义的处理方式。如：页面加载，鼠标移动，键盘按下等，都可以称为事件源。 所有的事件在javascript中都是以“onXxx”形式命名。  2 . 下面这两个事件只能在&amp;lt;body&amp;gt;中进行处理：  页面加载：onload 页面卸载事件：onunload  如下Demo：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="javascript（三）定义函数">
-<meta property="og:url" content="http://yoursite.com/2018/01/18/javascript（三）定义函数/index.html">
+<meta property="og:title" content="javascript（四）事件处理">
+<meta property="og:url" content="http://yoursite.com/2018/01/18/javascript（四）事件处理/index.html">
 <meta property="og:site_name" content="菲菲博客">
-<meta property="og:description" content="javascript定义函数1 . javascript中定义函数的操作语法： 123function 函数名称（参数）&amp;#123;	return[返回值];&amp;#125; 例子： 123456&amp;lt;script type=&quot;text/javascript&quot;&amp;gt;	function fun() &amp;#123;		alert(&quot;Hello World!&quot;);	&amp;#125;	fun();&amp;lt;/sc">
+<meta property="og:description" content="javascript事件处理1 . 什么是事件处理？  在页面上任何的操作都可以被称为事件源，而对每一个事件就可以进行自定义的处理方式。如：页面加载，鼠标移动，键盘按下等，都可以称为事件源。 所有的事件在javascript中都是以“onXxx”形式命名。  2 . 下面这两个事件只能在&amp;lt;body&amp;gt;中进行处理：  页面加载：onload 页面卸载事件：onunload  如下Demo：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-18T07:29:40.704Z">
+<meta property="og:updated_time" content="2018-01-18T08:40:09.397Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="javascript（三）定义函数">
-<meta name="twitter:description" content="javascript定义函数1 . javascript中定义函数的操作语法： 123function 函数名称（参数）&amp;#123;	return[返回值];&amp;#125; 例子： 123456&amp;lt;script type=&quot;text/javascript&quot;&amp;gt;	function fun() &amp;#123;		alert(&quot;Hello World!&quot;);	&amp;#125;	fun();&amp;lt;/sc">
+<meta name="twitter:title" content="javascript（四）事件处理">
+<meta name="twitter:description" content="javascript事件处理1 . 什么是事件处理？  在页面上任何的操作都可以被称为事件源，而对每一个事件就可以进行自定义的处理方式。如：页面加载，鼠标移动，键盘按下等，都可以称为事件源。 所有的事件在javascript中都是以“onXxx”形式命名。  2 . 下面这两个事件只能在&amp;lt;body&amp;gt;中进行处理：  页面加载：onload 页面卸载事件：onunload  如下Demo：">
 
 
 
@@ -126,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/01/18/javascript（三）定义函数/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/01/18/javascript（四）事件处理/"/>
 
 
 
 
 
-  <title>javascript（三）定义函数 | 菲菲博客</title>
+  <title>javascript（四）事件处理 | 菲菲博客</title>
   
 
 
@@ -279,7 +279,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/18/javascript（三）定义函数/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/18/javascript（四）事件处理/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="feifei">
@@ -296,7 +296,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">javascript（三）定义函数</h1>
+          <h1 class="post-title" itemprop="name headline">javascript（四）事件处理</h1>
         
 
         <div class="post-meta">
@@ -308,7 +308,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-18T15:29:19+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-18T16:33:02+08:00">
                 2018-01-18
               </time>
             
@@ -346,16 +346,31 @@
       
 
       
-        <p><strong>javascript定义函数</strong><br>1 . javascript中定义函数的操作语法：</p>
-<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title">函数名称（参数）&#123;</span></span><br><span class="line">	<span class="keyword">return</span>[返回值];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>例子：</p>
-<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;script <span class="keyword">type</span>=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">	function <span class="function"><span class="keyword">fun</span>() &#123;</span></span><br><span class="line"><span class="function">		<span class="title">alert</span></span>(<span class="string">"Hello World!"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">fun</span>();</span></span><br><span class="line"><span class="function"><span class="title">&lt;</span></span>/script&gt;</span><br></pre></td></tr></table></figure>
-<p>2 .javascript模拟面向编程<br>①Demo1:</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="actionscript">	<span class="function"><span class="keyword">function</span> <span class="title">Book</span><span class="params">()</span> </span>&#123;  <span class="comment">//定义一个Book类</span></span></span><br><span class="line"><span class="undefined">	&#125;</span></span><br><span class="line"><span class="actionscript">	<span class="comment">//prototype属于对原生的操作扩展</span></span></span><br><span class="line"><span class="actionscript">	Book.prototype.getInfo = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;  </span></span><br><span class="line"><span class="actionscript">		<span class="keyword">return</span> <span class="string">"这是一本书"</span>;</span></span><br><span class="line"><span class="undefined">	&#125;</span></span><br><span class="line"><span class="actionscript">	<span class="keyword">var</span> book = <span class="keyword">new</span> Book();</span></span><br><span class="line"><span class="undefined">	alert(book.getInfo());</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p> ②Demo2：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="actionscript">	<span class="function"><span class="keyword">function</span> <span class="title">Book</span><span class="params">(title,price)</span> </span>&#123;  <span class="comment">//定义一个Book类</span></span></span><br><span class="line"><span class="actionscript">		<span class="keyword">this</span>.title = title;</span></span><br><span class="line"><span class="actionscript">		<span class="keyword">this</span>.price = price;</span></span><br><span class="line"><span class="undefined">	&#125;</span></span><br><span class="line"><span class="actionscript">	Book.prototype.getInfo = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="actionscript">		<span class="keyword">return</span> <span class="string">"title="</span> + <span class="keyword">this</span>.title + <span class="string">",price="</span> + <span class="keyword">this</span>.price;</span></span><br><span class="line"><span class="undefined">	&#125;</span></span><br><span class="line"><span class="actionscript">	<span class="keyword">var</span> book = <span class="keyword">new</span> Book(<span class="string">"java"</span>,<span class="number">34.5</span>); <span class="comment">//构造函数</span></span></span><br><span class="line"><span class="undefined">	alert(book.getInfo());</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>③Demo3：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="actionscript">	<span class="keyword">var</span> myTitle;</span></span><br><span class="line"><span class="actionscript">	<span class="keyword">var</span> myPrice;</span></span><br><span class="line"><span class="actionscript">	<span class="function"><span class="keyword">function</span> <span class="title">Book</span><span class="params">(title,price)</span> </span>&#123; <span class="comment">//定义一个类</span></span></span><br><span class="line"><span class="undefined">		myTitle = title;</span></span><br><span class="line"><span class="undefined">		myPrice = price;</span></span><br><span class="line"><span class="actionscript">		<span class="function"><span class="keyword">function</span> <span class="title">getInfo</span><span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="actionscript">			<span class="keyword">return</span> <span class="string">"title="</span> + myTitle + <span class="string">",price="</span> + myPrice;</span></span><br><span class="line"><span class="undefined">		&#125;</span></span><br><span class="line"><span class="actionscript">		<span class="keyword">return</span> getInfo;  <span class="comment">//返回的是一个函数</span></span></span><br><span class="line"><span class="undefined">		&#125;			</span></span><br><span class="line"><span class="actionscript">		<span class="keyword">var</span> book = <span class="keyword">new</span> Book(<span class="string">"python"</span>,<span class="number">53</span>);  <span class="comment">//构造函数</span></span></span><br><span class="line"><span class="undefined">		alert(book());</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+        <p><strong>javascript事件处理</strong><br>1 . 什么是事件处理？</p>
+<ul>
+<li>在页面上任何的操作都可以被称为事件源，而对每一个事件就可以进行自定义的处理方式。如：<code>页面加载</code>，<code>鼠标移动</code>，<code>键盘按下</code>等，都可以称为事件源。</li>
+<li>所有的事件在javascript中都是以<code>“onXxx”</code>形式命名。</li>
+</ul>
+<p>2 . 下面这两个事件只能在<code>&lt;body&gt;</code>中进行处理：</p>
+<ul>
+<li>页面加载：<code>onload</code></li>
+<li>页面卸载事件：<code>onunload</code></li>
+</ul>
+<p>如下Demo：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span>javascript<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="actionscript">			<span class="function"><span class="keyword">function</span> <span class="title">loadHandle</span><span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="actionscript">				alert(<span class="string">"欢迎您的光临！"</span>);</span></span><br><span class="line"><span class="undefined">			&#125;</span></span><br><span class="line"><span class="actionscript">			<span class="function"><span class="keyword">function</span> <span class="title">closeHandle</span><span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="actionscript">				alert(<span class="string">"感谢您的光临，下次再来哦！"</span>);</span></span><br><span class="line"><span class="undefined">			&#125;</span></span><br><span class="line"><span class="undefined">		</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span> <span class="attr">onload</span>=<span class="string">"loadHandle();"</span> <span class="attr">onunload</span>=<span class="string">"closeHandle();"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p> 3 . 鼠标操作事件</p>
+<ul>
+<li><code>onmousedown（鼠标按下触发）</code></li>
+<li><code>onmouseover（鼠标进入时触发）</code></li>
+<li><code>onmouseout（鼠标移开时触发）</code></li>
+<li><code>onmouseup（鼠标弹开时触发）</code></li>
+<li><code>onmousemove（鼠标移动时触发）</code></li>
+</ul>
+<p>如下Demo1：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span>javascript<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="actionscript">			<span class="function"><span class="keyword">function</span> <span class="title">mouseHandle</span><span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="actionscript">				alert(<span class="string">"Hello Mm"</span>);</span></span><br><span class="line"><span class="undefined">			&#125;</span></span><br><span class="line"><span class="undefined">		</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">		//以下为按下时触发，其余的和这个一样</span><br><span class="line">		<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"52.jpeg"</span> <span class="attr">height</span>=<span class="string">"40%"</span> <span class="attr">onmousedown</span>=<span class="string">"mouseHandle()"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Demo2在按钮上绑定事件（单击）：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span>javascript<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="actionscript">			<span class="function"><span class="keyword">function</span> <span class="title">clickHandle</span><span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="actionscript">				alert(<span class="string">"Hello Mm"</span>);</span></span><br><span class="line"><span class="undefined">			&#125;</span></span><br><span class="line"><span class="undefined">		</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">onclick</span>=<span class="string">"clickHandle()"</span>&gt;</span>按我哦<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>双击将<code>onclick</code>改成<code>ondblclick</code>就可以了。</p>
+
       
     </div>
     
@@ -379,8 +394,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/17/javascript（二）基本语法/" rel="next" title="javascript（二）基本语法">
-                <i class="fa fa-chevron-left"></i> javascript（二）基本语法
+              <a href="/2018/01/18/javascript（三）定义函数/" rel="next" title="javascript（三）定义函数">
+                <i class="fa fa-chevron-left"></i> javascript（三）定义函数
               </a>
             
           </div>
@@ -388,10 +403,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/01/18/javascript（四）事件处理/" rel="prev" title="javascript（四）事件处理">
-                javascript（四）事件处理 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
