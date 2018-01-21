@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="javascript,java," />
 
 
 
@@ -86,17 +86,20 @@
 
 
 
-<meta name="description" content="javascript事件处理1 . 什么是事件处理？  在页面上任何的操作都可以被称为事件源，而对每一个事件就可以进行自定义的处理方式。如：页面加载，鼠标移动，键盘按下等，都可以称为事件源。 所有的事件在javascript中都是以“onXxx”形式命名。  2 . 下面这两个事件只能在&amp;lt;body&amp;gt;中进行处理：  页面加载：onload 页面卸载事件：onunload  如下Demo：">
+<meta name="description" content="javascript事件处理1 .什么是事件，事件驱动，事件处理程序？  通常鼠标或热键的动作称之为事件； 由鼠标或热键引发的一连串程序的操作，称之为事件驱动； 对事件进行处理程序或函数，称之为事件处理程序。  在页面上任何的操作都可以被称为事件源，而对每一个事件就可以进行自定义的处理方式。如：页面加载，鼠标移动，键盘按下等，都可以称为事件源。  所有的事件在javascript中都是以“onXx">
+<meta name="keywords" content="javascript,java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="javascript（四）事件处理">
 <meta property="og:url" content="http://yoursite.com/2018/01/18/javascript（四）事件处理/index.html">
 <meta property="og:site_name" content="菲菲博客">
-<meta property="og:description" content="javascript事件处理1 . 什么是事件处理？  在页面上任何的操作都可以被称为事件源，而对每一个事件就可以进行自定义的处理方式。如：页面加载，鼠标移动，键盘按下等，都可以称为事件源。 所有的事件在javascript中都是以“onXxx”形式命名。  2 . 下面这两个事件只能在&amp;lt;body&amp;gt;中进行处理：  页面加载：onload 页面卸载事件：onunload  如下Demo：">
+<meta property="og:description" content="javascript事件处理1 .什么是事件，事件驱动，事件处理程序？  通常鼠标或热键的动作称之为事件； 由鼠标或热键引发的一连串程序的操作，称之为事件驱动； 对事件进行处理程序或函数，称之为事件处理程序。  在页面上任何的操作都可以被称为事件源，而对每一个事件就可以进行自定义的处理方式。如：页面加载，鼠标移动，键盘按下等，都可以称为事件源。  所有的事件在javascript中都是以“onXx">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-18T09:58:07.714Z">
+<meta property="og:image" content="http://img.blog.csdn.net/20180121113219966?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGlueWUxMjMw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2018-01-21T13:00:14.611Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript（四）事件处理">
-<meta name="twitter:description" content="javascript事件处理1 . 什么是事件处理？  在页面上任何的操作都可以被称为事件源，而对每一个事件就可以进行自定义的处理方式。如：页面加载，鼠标移动，键盘按下等，都可以称为事件源。 所有的事件在javascript中都是以“onXxx”形式命名。  2 . 下面这两个事件只能在&amp;lt;body&amp;gt;中进行处理：  页面加载：onload 页面卸载事件：onunload  如下Demo：">
+<meta name="twitter:description" content="javascript事件处理1 .什么是事件，事件驱动，事件处理程序？  通常鼠标或热键的动作称之为事件； 由鼠标或热键引发的一连串程序的操作，称之为事件驱动； 对事件进行处理程序或函数，称之为事件处理程序。  在页面上任何的操作都可以被称为事件源，而对每一个事件就可以进行自定义的处理方式。如：页面加载，鼠标移动，键盘按下等，都可以称为事件源。  所有的事件在javascript中都是以“onXx">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20180121113219966?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGlueWUxMjMw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 
 
 
@@ -319,6 +322,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -346,18 +371,27 @@
       
 
       
-        <p><strong>javascript事件处理</strong><br>1 . 什么是事件处理？</p>
+        <p><strong>javascript事件处理</strong><br>1 .什么是事件，事件驱动，事件处理程序？</p>
 <ul>
-<li>在页面上任何的操作都可以被称为事件源，而对每一个事件就可以进行自定义的处理方式。如：<code>页面加载</code>，<code>鼠标移动</code>，<code>键盘按下</code>等，都可以称为事件源。</li>
+<li>通常鼠标或热键的动作称之为<code>事件</code>；</li>
+<li>由鼠标或热键引发的一连串程序的操作，称之为<code>事件驱动</code>；</li>
+<li>对事件进行处理程序或函数，称之为<code>事件处理程序</code>。</li>
+</ul>
+<p>在页面上任何的操作都可以被称为事件源，而对每一个事件就可以进行自定义的处理方式。如：<code>页面加载</code>，<code>鼠标移动</code>，<code>键盘按下</code>等，都可以称为事件源。</p>
+<ul>
 <li>所有的事件在javascript中都是以<code>“onXxx”</code>形式命名。</li>
 </ul>
 <p>2 . 下面这两个事件只能在<code>&lt;body&gt;</code>中进行处理：</p>
+<blockquote>
+<p>注：<em>把javascript代码放在<code>&lt;head&gt;&lt;/head&gt;</code>和放在<code>&lt;body&gt;&lt;/body&gt;</code>里是有区别的：</em><br>放在<code>&lt;head&gt;&lt;/head&gt;</code>里的代码先执行，放在<code>&lt;body&gt;&lt;/body&gt;</code>里的代码后执行。<br>head标签里的代码会在页面还未开始绘制之前被解析，而在body里的代码则会在界面渲染的同时在读取到这段代码的时候才被执行。</p>
+</blockquote>
 <ul>
 <li>页面加载：<code>onload</code></li>
 <li>页面卸载事件：<code>onunload</code></li>
 </ul>
 <p>如下Demo：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span>javascript<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="actionscript">			<span class="function"><span class="keyword">function</span> <span class="title">loadHandle</span><span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="actionscript">				alert(<span class="string">"欢迎您的光临！"</span>);</span></span><br><span class="line"><span class="undefined">			&#125;</span></span><br><span class="line"><span class="actionscript">			<span class="function"><span class="keyword">function</span> <span class="title">closeHandle</span><span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="actionscript">				alert(<span class="string">"感谢您的光临，下次再来哦！"</span>);</span></span><br><span class="line"><span class="undefined">			&#125;</span></span><br><span class="line"><span class="undefined">		</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span> <span class="attr">onload</span>=<span class="string">"loadHandle();"</span> <span class="attr">onunload</span>=<span class="string">"closeHandle();"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p> 3 . 鼠标操作事件</p>
+<p>常用的事件：<br><img src="http://img.blog.csdn.net/20180121113219966?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGlueWUxMjMw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>3 . 鼠标操作事件</p>
 <ul>
 <li><code>onmousedown（鼠标按下触发）</code></li>
 <li><code>onmouseover（鼠标进入时触发）</code></li>
@@ -385,6 +419,14 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/javascript/" rel="tag"># javascript</a>
+          
+            <a href="/tags/java/" rel="tag"># java</a>
+          
+        </div>
       
 
       
