@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Jsp,java," />
+  <meta name="keywords" content="java,Oracle," />
 
 
 
@@ -86,18 +86,18 @@
 
 
 
-<meta name="description" content="1 .接收数据操作request.getParameter(String 参数名称)参数名称是表单控件的内容。Demo：input.html 1234&amp;lt;form action=&quot;input.jsp&quot; method=&quot;post&quot;&amp;gt;	请输入信息：&amp;lt;input type=&quot;text&quot; name=&quot;msg&quot; id=&quot;msg&quot;&amp;gt;	&amp;lt;input type=&quot;submit&quot; val">
-<meta name="keywords" content="Jsp,java">
+<meta name="description" content="1.字符函数  upper转化为大写lower转化为小写  查询出雇员姓名为SMITH的完整信息，用upper函数将全部内容转化为大写 1select * from emp where ename=upper(&apos;smith&apos;); 2.initcap首字母大写查询所有雇员姓名，要求将每个雇员姓名以首字母大写的形式出现 1select ename 原始姓名,initcap(ename) 转化以后的姓名">
+<meta name="keywords" content="java,Oracle">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Jsp（第一部分）">
-<meta property="og:url" content="http://yoursite.com/2018/02/01/Jsp（第一部分）/index.html">
+<meta property="og:title" content="单行函数">
+<meta property="og:url" content="http://yoursite.com/2018/03/05/单行函数/index.html">
 <meta property="og:site_name" content="菲菲博客">
-<meta property="og:description" content="1 .接收数据操作request.getParameter(String 参数名称)参数名称是表单控件的内容。Demo：input.html 1234&amp;lt;form action=&quot;input.jsp&quot; method=&quot;post&quot;&amp;gt;	请输入信息：&amp;lt;input type=&quot;text&quot; name=&quot;msg&quot; id=&quot;msg&quot;&amp;gt;	&amp;lt;input type=&quot;submit&quot; val">
+<meta property="og:description" content="1.字符函数  upper转化为大写lower转化为小写  查询出雇员姓名为SMITH的完整信息，用upper函数将全部内容转化为大写 1select * from emp where ename=upper(&apos;smith&apos;); 2.initcap首字母大写查询所有雇员姓名，要求将每个雇员姓名以首字母大写的形式出现 1select ename 原始姓名,initcap(ename) 转化以后的姓名">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-01T14:22:01.369Z">
+<meta property="og:updated_time" content="2018-03-05T13:29:22.971Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jsp（第一部分）">
-<meta name="twitter:description" content="1 .接收数据操作request.getParameter(String 参数名称)参数名称是表单控件的内容。Demo：input.html 1234&amp;lt;form action=&quot;input.jsp&quot; method=&quot;post&quot;&amp;gt;	请输入信息：&amp;lt;input type=&quot;text&quot; name=&quot;msg&quot; id=&quot;msg&quot;&amp;gt;	&amp;lt;input type=&quot;submit&quot; val">
+<meta name="twitter:title" content="单行函数">
+<meta name="twitter:description" content="1.字符函数  upper转化为大写lower转化为小写  查询出雇员姓名为SMITH的完整信息，用upper函数将全部内容转化为大写 1select * from emp where ename=upper(&apos;smith&apos;); 2.initcap首字母大写查询所有雇员姓名，要求将每个雇员姓名以首字母大写的形式出现 1select ename 原始姓名,initcap(ename) 转化以后的姓名">
 
 
 
@@ -127,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/02/01/Jsp（第一部分）/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/03/05/单行函数/"/>
 
 
 
 
 
-  <title>Jsp（第一部分） | 菲菲博客</title>
+  <title>单行函数 | 菲菲博客</title>
   
 
 
@@ -280,7 +280,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/01/Jsp（第一部分）/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/05/单行函数/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="feifei">
@@ -297,7 +297,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Jsp（第一部分）</h1>
+          <h1 class="post-title" itemprop="name headline">单行函数</h1>
         
 
         <div class="post-meta">
@@ -309,8 +309,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-01T22:20:44+08:00">
-                2018-02-01
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-05T21:28:22+08:00">
+                2018-03-05
               </time>
             
 
@@ -332,8 +332,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Jsp/" itemprop="url" rel="index">
-                    <span itemprop="name">Jsp</span>
+                  <a href="/categories/Oracle/" itemprop="url" rel="index">
+                    <span itemprop="name">Oracle</span>
                   </a>
                 </span>
 
@@ -369,39 +369,70 @@
       
 
       
-        <p><strong>1 .接收数据操作</strong><br><code>request.getParameter(String 参数名称)</code>参数名称是表单控件的内容。<br>Demo：input.html</p>
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">form</span> action=<span class="string">"input.jsp"</span> method=<span class="string">"post"</span>&gt;</span><br><span class="line">	请输入信息：&lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"text"</span> name=<span class="string">"msg"</span> id=<span class="string">"msg"</span>&gt;</span><br><span class="line">	&lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"submit"</span> value=<span class="string">"发送"</span>&gt;</span><br><span class="line">&lt;/<span class="keyword">form</span>&gt;</span><br></pre></td></tr></table></figure>
-<p>接收参数—input.jsp</p>
-<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;%</span><br><span class="line">	<span class="keyword">String</span> <span class="built_in">str</span> = request.getParameter(<span class="string">"msg"</span>);<span class="comment">//此时的msg就是表单的name属性</span></span><br><span class="line">	out.<span class="built_in">println</span>(<span class="string">"&lt;h1&gt;"</span> + <span class="built_in">str</span> + <span class="string">"&lt;/h1&gt;"</span>);</span><br><span class="line">%&gt;</span><br></pre></td></tr></table></figure>
+        <p><strong>1.字符函数</strong></p>
 <blockquote>
-<p>request.getParameter()接收请求参数，返回的类型是String。<br>返回String可以使用正则验证，可以变为任意的数据类型。</p>
+<p><code>upper</code>转化为大写<br><code>lower</code>转化为小写</p>
 </blockquote>
-<p><strong>2 .Jsp注释</strong><br>显示注释：使用<code>html</code>风格的<code>&lt;!--  注释 --&gt;</code>。<br>隐式注释：①使用<code>java</code>语言提供的注释，单行注释用<code>//</code>，多行注释用<code>/* ...*/</code>。<br>                  ②使用<code>Jsp</code>语言提供的注释，<code>&lt;% --  注释 --%&gt;</code>。</p>
+<p>查询出雇员姓名为SMITH的完整信息，用upper函数将全部内容转化为大写</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> emp <span class="keyword">where</span> ename=<span class="keyword">upper</span>(<span class="string">'smith'</span>);</span><br></pre></td></tr></table></figure>
+<p><strong>2.<code>initcap</code>首字母大写</strong><br>查询所有雇员姓名，要求将每个雇员姓名以首字母大写的形式出现</p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> ename 原始姓名,<span class="built_in">initcap</span>(ename) 转化以后的姓名  <span class="keyword">from</span> emp;</span><br></pre></td></tr></table></figure>
+<p><strong>3.<code>replace</code>字符串替换</strong><br>查询所有雇员的姓名，并且将雇员姓名中所有的字母“A”替换为字符“_”</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> ename,<span class="keyword">replace</span>(ename,<span class="string">'A'</span>,<span class="string">'_'</span>) <span class="keyword">AS</span> 替换后的姓名 <span class="keyword">from</span> emp;</span><br></pre></td></tr></table></figure>
+<p><strong>4.<code>length</code>字符串长度</strong><br>查询出姓名长度为5的所有雇员信息</p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> emp <span class="keyword">where</span> <span class="built_in">length</span>(ename)=<span class="number">5</span>;</span><br></pre></td></tr></table></figure>
+<p><strong>5.<code>substr</code>字符串截取</strong><br>查询姓名前3个字母是JAM的雇员信息</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> emp <span class="keyword">where</span> <span class="keyword">substr</span>(ename,<span class="number">0</span>,<span class="number">3</span>)=<span class="string">'JAM'</span>;</span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> emp <span class="keyword">where</span> <span class="keyword">substr</span>(ename,<span class="number">1</span>,<span class="number">3</span>)=<span class="string">'JAM'</span>;</span><br></pre></td></tr></table></figure>
+<p>6.查询雇员姓名及雇员姓名的后3个字母</p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> ename,<span class="built_in">substr</span>(ename,<span class="number">-3</span>) <span class="keyword">AS</span> 截取以后的姓名 <span class="keyword">from</span> emp;</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>运行之后只有显示注释的内容会发送到客户端上。<br> Jsp本身依然还是属于java开发技术，因此依然可以使用java注释。</p>
+<p>注：substr函数中可以设置负数截取<br> oracle中下标从0开始或是从1开始都是一样的</p>
 </blockquote>
-<p><strong>3 .scriptlet</strong><br>java程序中有Application与Applet（应用小程序）两类程序，而scriptlet就是<code>脚本小程序</code>。只要编写java程序的语句都需要在<code>&lt;% %&gt;</code>之中进行编写，而这样的操作形式就称为scriptlet。<br>根据scriptlet作用不同，可以分为三类：<br>①<code>&lt;% %&gt;</code><br>在这样的scriptlet中所能够编写的只有<code>局部变量，程序语句</code>。<br>一般而言在一个Jsp的文件里面，使用最多的就是<code>&lt;% %&gt;</code>。<br>②<code>&lt;%! %&gt;</code><br>这种scriptlet可以定义<code>全局变量，全局常量，方法，类</code>。<br>若定义全局变量，基本上在&lt;%! %&gt;唯一能用到的就是用它定义全局变量。在此类scriptlet里面却可以定义类和方法。<br>③<code>&lt;%= %&gt;</code><br>out.println()是向页面中进行内容显示输出的，但是在Jsp里面如果要想输出某一个<code>变量或类或常量以及方法的返回值</code>。可以使用表达式输出的scriptlet完整 。<br><code>&lt;%=变量，变量，方法返回值%&gt;</code>，这种scriptlet可以很好的代替out.println()。<br>out.println()与&lt;%= %&gt;相比最大的好处在于<code>&lt;%= %&gt;代码简化</code>。因此在以后的开发中不使用out.println()输出。</p>
+<p><strong>7.数值函数</strong></p>
 <blockquote>
-<p>总结：scriptlet定义最多的：局部变量，全局变量，表达式输出内容。</p>
+<p><code>round</code>数据四舍五入<br><code>trunc</code>数据截取，不进位<br> <code>mod</code>取模（取余数）</p>
 </blockquote>
-<p><strong>4 .Page</strong><br>page主要的功能是定义一个页面中的全部属性，里面包含很多的选项。<br>①解决显示乱码<br>HTML文件乱码可以通过<code>&lt;meta charset=&quot;utf-8&quot;&gt;</code>，浏览器支持的编码可以使用<code>pageEncoding</code>属性，编码依然为<code>utf-8</code>完成。<br><code>&lt;%@ page pageEncoding=&quot;UTF-8&quot; %&gt;</code>注：编码只能设置一次。<br>②设置MIME属性<br>MIME指的是多路internet媒体访问协议，相当于通过MIME类型定义出当前页面的执行方式，最早的时候除了用pageEncoding解决乱码问题之外，也会利用设置MIME类型的方式来解决乱码。<br>③导入系统开发包<br>在page指令里面几乎所有的指令都能够设置一次，但是只有<code>import指令可以使用多次</code>，表示导入所需要的开发包。<br><code>&lt;%@ page import=&quot;java.util.*&quot; %&gt;</code><br>只要可以导包那么就意味着所有的系统类都可以进行调用。因此Jsp页面上就可以进行数据库的操作。</p>
+<p>round函数的使用<br><figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">round</span>(<span class="number">789.652</span>) 不保留小数,<span class="built_in">round</span>(<span class="number">789.652</span>,<span class="number">2</span>) 保留两位小数,<span class="built_in">round</span>(<span class="number">789.652</span>,<span class="number">-1</span>) 处理整数进位 <span class="keyword">from</span> dual;</span><br></pre></td></tr></table></figure></p>
 <blockquote>
-<p>总结：1.解决乱码使用<code>pageEncoding</code>时<br>2.MIME类型一般不需要设置，默认就是<code>“text/html”</code><br>3.Jsp可以直接使用java中提供的所有类库。</p>
-</blockquote>
-<p><strong>5 .包含指令</strong></p>
+<p>不保留小数 保留两位小数 处理整数进位</p>
+<hr>
+<pre><code>790       789.65          790
+</code></pre></blockquote>
+<p>8.验证trunc函数的使用</p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">trunc</span>(<span class="number">789.652</span>) 截取小数,<span class="built_in">trunc</span>(<span class="number">789.652</span>,<span class="number">2</span>) 截取两位小数,<span class="built_in">trunc</span>(<span class="number">789.652</span>,<span class="number">-2</span>) 取整 <span class="keyword">from</span> dual;</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>第一种：在每一个显示页面里面重复包含有“菜单项”，“头部信息”，“尾部信息”，这三个重复内容。<br>第二种：将“菜单项”，“头部信息”，“尾部信息”分别定义为三个文件，在需要的地方引入。 采用第二种更加适合于代码维护，因此需要使用包含指令。</p>
-</blockquote>
-<p>包含指令有两种提供形式：<br>1）静态包含：<code>&lt;%@ include %&gt;</code><br>语法：<code>&lt;%@ include file=&quot;包含文件路径&quot;&gt;</code>它可以包含任意的文件内容。<br>如：&lt;%@ include file=”partA.html”&gt;<br>2）动态包含： <code>&lt;jsp:include&gt;</code><br>静态包含知识将文件的内容简单的包含，如果使用的是动态包含，它可以分为两种处理：<br>①被包含的页面属于静态文件，就像是<code>&lt;%@ include %&gt;</code>一样直接导入进来<br>②被包含的页面属于动态页面，则要分别处理后在进行包含。<br>对于动态包含它所给出的指令形式属于标签指令。所有的标签指令形式有一个特点就是最后必须<code>完结</code>，对于此类语法有两种定义。<br>定义一：包含的时候不传递参数：<code>&lt;jsp:include page=&quot;路径&quot; /&gt;</code><br>定义二：包含的时候传递参数:</p>
-<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;jsp:<span class="built_in">include</span> page=<span class="string">"路径"</span>&gt;</span><br><span class="line">	&lt;jsp:<span class="built_in">param</span> name=<span class="string">"参数名称"</span> <span class="built_in">value</span>=<span class="string">"参数内容"</span> /&gt;</span><br><span class="line">	&lt;jsp:<span class="built_in">param</span> name=<span class="string">"参数名称"</span> <span class="built_in">value</span>=<span class="string">"参数内容"</span> /&gt;</span><br><span class="line">	&lt;jsp:<span class="built_in">param</span> name=<span class="string">"参数名称"</span> <span class="built_in">value</span>=<span class="string">"参数内容"</span> /&gt;</span><br><span class="line">	....</span><br><span class="line">&lt;/jsp:<span class="built_in">include</span>&gt;</span><br></pre></td></tr></table></figure>
-<p>所有的接收的参数方式使用<code>request.getParameter()</code>完成。<br>在标签指令中如果要使用scriptlet里面定义的变量内容，则必须使用表达式输出的方式<code>&lt;%= %&gt;</code>完成。</p>
+<p>  截取小数 截取两位小数       取整</p>
+<hr>
+<pre><code>789       789.65        700
+</code></pre></blockquote>
+<p>9.验证mod函数的使用</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">mod</span>(<span class="number">10</span>,<span class="number">3</span>) <span class="keyword">from</span> dual;</span><br></pre></td></tr></table></figure>
+<p><strong>10.日期函数</strong><br>取得当前的系统时间<code>sysdate</code></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">sysdate</span> <span class="keyword">from</span> dual;</span><br></pre></td></tr></table></figure>
+<p>11.查询距离今天为止5天之后以及5天之前的日期</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">sysdate</span>+<span class="number">5</span> 五天之后的日期,<span class="keyword">sysdate</span><span class="number">-5</span> 五天之后的日期 <span class="keyword">from</span> dual;</span><br></pre></td></tr></table></figure>
+<p><strong>12.<code>add_months</code>函数：指定的日期上增加若干个月后的日期</strong><br>验证add_months函数</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">sysdate</span>,add_months(<span class="keyword">sysdate</span>,<span class="number">3</span>) 三个月之后的日期,add_months(<span class="keyword">sysdate</span>,<span class="number">-3</span>) 三个月之前的日期 <span class="keyword">from</span> dual;</span><br></pre></td></tr></table></figure>
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">col 三个月之后的日期 format A20<span class="comment">;</span></span><br><span class="line">col 三个月之前的日期 format A20<span class="comment">;</span></span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>总结：两种包含的区别<br> 静态包含： 语法：<code>&lt;%@include file=&quot;路径&quot;%&gt;</code><br> 处理流程：先包含后处理。<br> 动态包含： 语法：<code>&lt;jsp:include page=&quot;路径&quot;/&gt;</code><br>  处理流程：如果包含的是静态页面则只是将文件内容导入进来，如果包含的是动态页面，则先分别执行，后将结果包含进来（先处理后包含）。<br>在以后的开发之中，绝对不要使用静态包含，都统一用动态包含。</p>
+<p>注：sqlplus增加列宽的格式： col 列名 format A×；</p>
 </blockquote>
-<p><strong>6 .跳转指令</strong><br>定义一：不向跳转页面传递参数：<code>&lt;jsp:forward page=&quot;路径&quot; /&gt;</code><br>定义二：向跳转页面传递参数<br><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;jsp:forward page=<span class="string">"路径"</span>&gt;</span><br><span class="line">	&lt;jsp:<span class="built_in">param</span> name=<span class="string">"参数名称"</span> <span class="built_in">value</span>=<span class="string">"参数内容"</span> /&gt;</span><br><span class="line">	&lt;jsp:<span class="built_in">param</span> name=<span class="string">"参数名称"</span> <span class="built_in">value</span>=<span class="string">"参数内容"</span> /&gt;</span><br><span class="line">	&lt;jsp:<span class="built_in">param</span> name=<span class="string">"参数名称"</span> <span class="built_in">value</span>=<span class="string">"参数内容"</span> /&gt;</span><br><span class="line">	....</span><br><span class="line">&lt;/jsp:forward &gt;</span><br></pre></td></tr></table></figure></p>
+<p>13.查询所有雇员在雇佣三个月之后的日期</p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> ename,job,hiredate,add_months(hiredate,<span class="number">3</span>) 三个月之后的日期 <span class="keyword">from</span> emp;</span><br></pre></td></tr></table></figure>
+<p><strong>14.<code>last_day</code>函数：日期所在月的最后一天</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">sysdate</span>,<span class="keyword">last_day</span>(<span class="keyword">sysdate</span>) 日期所在月的最后一天  <span class="keyword">from</span> dual;</span><br></pre></td></tr></table></figure>
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">col 日期所在月的最后一天 format A30<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p><strong>15.转换函数</strong><br><strong><code>to_char</code>函数：将日期数字转化为字符串</strong><br>格式化当前日期</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">sysdate</span> 当前系统时间,to_char(<span class="keyword">sysdate</span>,<span class="string">'YYYY-MM-DD'</span>) 格式化日期 <span class="keyword">from</span> dual;</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">sysdate</span> 当前系统时间,to_char(<span class="keyword">sysdate</span>,<span class="string">'YYYY-MM-DD HH24:MI:SS'</span>) 格式化日期 <span class="keyword">from</span> dual;</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>地址栏不改变的跳转是服务端跳转<br>地址栏改变的跳转是客户端跳转 跳转指令与包含指令一样都必须在每次使用后<code>完结</code>。<br><code>forward跳转</code>之后地址栏不改变，属于<code>服务器端跳转</code>。</p>
+<p>注：在oracle中格式化标记不区分大小写，如‘YYYY’可以写成‘yyyy’</p>
 </blockquote>
+<p>16.查询出所有在每年2月份雇佣的雇员信息</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="function"><span class="keyword">from</span> emp <span class="keyword">where</span> <span class="title">to_char</span>(<span class="params">hiredate,<span class="string">'MM'</span></span>)</span>=<span class="string">'02'</span>;</span><br><span class="line"><span class="keyword">select</span> * <span class="function"><span class="keyword">from</span> emp <span class="keyword">where</span> <span class="title">to_char</span>(<span class="params">hiredate,<span class="string">'MM'</span></span>)</span>=<span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+<p>17.将每个雇员的雇佣日期进行格式化</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> empno,ename,hiredate,to_char(hiredate,<span class="string">'YYYY-mm-dd'</span>) 格式化雇用日期 <span class="keyword">from</span> emp;</span><br></pre></td></tr></table></figure>
+<p><strong>18.<code>to_date</code>函数：将日期字符串变为日期型数据</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">TO_DATE</span>(<span class="string">'1981-01-31'</span>,<span class="string">'YYYY-MM-DD'</span>) 格式化后的日期  <span class="keyword">from</span> dual;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -419,9 +450,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Jsp/" rel="tag"># Jsp</a>
-          
             <a href="/tags/java/" rel="tag"># java</a>
+          
+            <a href="/tags/Oracle/" rel="tag"># Oracle</a>
           
         </div>
       
@@ -434,8 +465,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/30/javascript正则表达式/" rel="next" title="javascript正则表达式">
-                <i class="fa fa-chevron-left"></i> javascript正则表达式
+              <a href="/2018/03/05/SQL简单查询/" rel="next" title="SQL简单查询">
+                <i class="fa fa-chevron-left"></i> SQL简单查询
               </a>
             
           </div>
@@ -443,10 +474,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/03/05/SQL简单查询/" rel="prev" title="SQL简单查询">
-                SQL简单查询 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
