@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[多表查询]]></title>
+    <url>%2F2018%2F03%2F06%2F%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2%2F</url>
+    <content type="text"><![CDATA[1.count函数查询emp表中的数据量1select count(*) from emp; 2.查询一个表的结构 desc + 表名称desc dept； 3.将emp，dept表中的笛卡尔积消除掉 注：在多表查询时，由于数据库的检索机制会产生笛卡尔积，笛卡尔积是多张数据表的乘积 1select * from emp,dept where emp.deptno = dept.deptno; 4.多表查询建议在字段查询时采用“表名.字段名”的形式操作查询每个雇员的编号，姓名，职位，基本工资，部门名称，部门位置信息 1select emp.empno,emp.ename,emp.job,emp.sal,dept.dname,dept.loc from emp,dept where emp.deptno=dept.deptno; 5.表中的字段查询时采用“表名.字段名”有时会很长，一般使用“别名.字段名”的形式 1select e.empno,e.ename,e.job,e.sal,d.dname,d.loc from emp e,dept d where e.deptno=d.deptno; 6.查询出每个雇员的编号，姓名，雇佣日期，基本工资，工资等级 1select e.empno,e.ename,e.hiredate,e.sal,s.grade from emp e,salgrade s where e.sal between s.losal and s.hisal; 7.查询每个雇员的姓名，职位，基本工资，部门名称，工资所在公司的工资等级 1select e.ename,e.job,e.sal,d.dname,s.grade from emp e,dept d,salgrade s where e.deptno=d.deptno and e.sal between s.losal and s.hisal; 8.表的自身关联查询每个雇员的编号，姓名及其上级领导的编号，姓名 分析：因为emp表中mgr字段的原因，所以要进行自身连接 1select e.empno,e.ename,m.empno,m.ename from emp e,emp m where e.mgr=m.empno； 运行指令之后发现没有king的信息，是因为king没有上级领导，所以需要使用左外连接，即： 1select e.empno,e.ename,m.empno,m.ename from emp e,emp m where e.mgr=m.empno(+); 注：在oracle中用（+）控制左外连接和右外连接]]></content>
+      <categories>
+        <category>Oracle</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>Oracle</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[单行函数]]></title>
     <url>%2F2018%2F03%2F05%2F%E5%8D%95%E8%A1%8C%E5%87%BD%E6%95%B0%2F</url>
     <content type="text"><![CDATA[1.字符函数 upper转化为大写lower转化为小写 查询出雇员姓名为SMITH的完整信息，用upper函数将全部内容转化为大写 1select * from emp where ename=upper('smith'); 2.initcap首字母大写查询所有雇员姓名，要求将每个雇员姓名以首字母大写的形式出现 1select ename 原始姓名,initcap(ename) 转化以后的姓名 from emp; 3.replace字符串替换查询所有雇员的姓名，并且将雇员姓名中所有的字母“A”替换为字符“_” 1select ename,replace(ename,'A','_') AS 替换后的姓名 from emp; 4.length字符串长度查询出姓名长度为5的所有雇员信息 1select * from emp where length(ename)=5; 5.substr字符串截取查询姓名前3个字母是JAM的雇员信息 12select * from emp where substr(ename,0,3)='JAM';select * from emp where substr(ename,1,3)='JAM'; 6.查询雇员姓名及雇员姓名的后3个字母 1select ename,substr(ename,-3) AS 截取以后的姓名 from emp; 注：substr函数中可以设置负数截取 oracle中下标从0开始或是从1开始都是一样的 7.数值函数 round数据四舍五入trunc数据截取，不进位 mod取模（取余数） round函数的使用1select round(789.652) 不保留小数,round(789.652,2) 保留两位小数,round(789.652,-1) 处理整数进位 from dual; 不保留小数 保留两位小数 处理整数进位 790 789.65 790 8.验证trunc函数的使用 1select trunc(789.652) 截取小数,trunc(789.652,2) 截取两位小数,trunc(789.652,-2) 取整 from dual; 截取小数 截取两位小数 取整 789 789.65 700 9.验证mod函数的使用 1select mod(10,3) from dual; 10.日期函数取得当前的系统时间sysdate 1select sysdate from dual; 11.查询距离今天为止5天之后以及5天之前的日期 1select sysdate+5 五天之后的日期,sysdate-5 五天之后的日期 from dual; 12.add_months函数：指定的日期上增加若干个月后的日期验证add_months函数 1select sysdate,add_months(sysdate,3) 三个月之后的日期,add_months(sysdate,-3) 三个月之前的日期 from dual; 12col 三个月之后的日期 format A20;col 三个月之前的日期 format A20; 注：sqlplus增加列宽的格式： col 列名 format A×； 13.查询所有雇员在雇佣三个月之后的日期 1select ename,job,hiredate,add_months(hiredate,3) 三个月之后的日期 from emp; 14.last_day函数：日期所在月的最后一天 1select sysdate,last_day(sysdate) 日期所在月的最后一天 from dual; 1col 日期所在月的最后一天 format A30; 15.转换函数to_char函数：将日期数字转化为字符串格式化当前日期 12select sysdate 当前系统时间,to_char(sysdate,'YYYY-MM-DD') 格式化日期 from dual;select sysdate 当前系统时间,to_char(sysdate,'YYYY-MM-DD HH24:MI:SS') 格式化日期 from dual; 注：在oracle中格式化标记不区分大小写，如‘YYYY’可以写成‘yyyy’ 16.查询出所有在每年2月份雇佣的雇员信息 12select * from emp where to_char(hiredate,'MM')='02';select * from emp where to_char(hiredate,'MM')=2; 17.将每个雇员的雇佣日期进行格式化 1select empno,ename,hiredate,to_char(hiredate,'YYYY-mm-dd') 格式化雇用日期 from emp; 18.to_date函数：将日期字符串变为日期型数据 1select TO_DATE('1981-01-31','YYYY-MM-DD') 格式化后的日期 from dual;]]></content>
