@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[分组统计查询]]></title>
+    <url>%2F2018%2F03%2F06%2F%E5%88%86%E7%BB%84%E7%BB%9F%E8%AE%A1%E6%9F%A5%E8%AF%A2%2F</url>
+    <content type="text"><![CDATA[1.查询出公司每个月支出的月工资的总和 1select sum(sal) from emp; 2.查询出公司的最高工资，最低工资，平均工资 1select max(sal),min(sal),avg(sal),round(avg(sal),2) from emp; 3.统计出公司最早雇佣日期和最晚雇佣日期 1select min(hiredate) 最早雇佣时间,max(hiredate) 最晚雇用时间 from emp; 4.统计出公司的雇员人数 1select count(empno),count(*) from emp; 5.统计出每个部门的人数 1select deptno,count(*) from emp group by deptno; 6.统计出每种职位的最低工资和最高工资 1select job,min(sal),max(sal) from emp group by job; 7.求出每个部门平均工资最高的工资 1select max(avg(sal)) from emp group by deptno; 8.查询每个部门的名称，部门人数，部门平均功能工资，平均服务年限 1select d.dname,count(e.empno),round(avg(e.sal),2) 平均工资,round(avg(months_between(sysdate,hiredate)/12),2) 平均服务年限 from dept d,emp e where e.deptno=d.deptno group by d.dname; 公司明明有4个部门但是只显示3个，是因为有一个部门没有雇员，因此需要使用右外连接 1select d.dname,count(e.empno),round(avg(e.sal),2) 平均工资,round(avg(months_between(sysdate,hiredate)/12),2) 平均服务年限 from dept d,emp e where e.deptno(+)=d.deptno group by d.dname; 9.查询公司各个工资等级雇员的数量，平均工资 1select s.grade,count(e.empno),round(avg(e.sal),2) from emp e,salgrade s where e.sal between s.losal and s.hisal group by s.grade; 10.HAVING子句查询出所有平均工资大于2000元的职位信息，平均工资，雇员人数 1select job,round(avg(sal),2),count(empno) from emp group by job having avg(sal)&gt;2000; 11.列出至少有一个员工的所有部门编号，名称，并统计这些部门的平均工资，最低工资，最高工资 1select d.deptno,d.dname,round(avg(e.sal),2),min(e.sal),max(e.sal) from emp e,dept d where e.deptno=d.deptno group by d.deptno,d.dname,d.loc having count(e.empno)&gt;1; 12.显示非销售人员工作名称以及从事同一工作雇员的月工资的总和，并且要满足从事同一工作的雇员的月工资合计大于5000元，输出结果按月工资的合计升序排列 1select job,sum(sal) sum from emp where job&lt;&gt;'SALESMAN' group by job having sum(sal)&gt;5000 order by sum asc； 总结：在SQL中主要提供了5种分组函数，分别是count,avg,sum,min,max函数使用group by子句可以对数据进行分组操作，而使用having子句可以对分组之后的数据进行再次过滤。]]></content>
+      <categories>
+        <category>Oracle</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>Oracle</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[多表查询]]></title>
     <url>%2F2018%2F03%2F06%2F%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2%2F</url>
     <content type="text"><![CDATA[1.count函数查询emp表中的数据量1select count(*) from emp; 2.查询一个表的结构 desc + 表名称desc dept； 3.将emp，dept表中的笛卡尔积消除掉 注：在多表查询时，由于数据库的检索机制会产生笛卡尔积，笛卡尔积是多张数据表的乘积 1select * from emp,dept where emp.deptno = dept.deptno; 4.多表查询建议在字段查询时采用“表名.字段名”的形式操作查询每个雇员的编号，姓名，职位，基本工资，部门名称，部门位置信息 1select emp.empno,emp.ename,emp.job,emp.sal,dept.dname,dept.loc from emp,dept where emp.deptno=dept.deptno; 5.表中的字段查询时采用“表名.字段名”有时会很长，一般使用“别名.字段名”的形式 1select e.empno,e.ename,e.job,e.sal,d.dname,d.loc from emp e,dept d where e.deptno=d.deptno; 6.查询出每个雇员的编号，姓名，雇佣日期，基本工资，工资等级 1select e.empno,e.ename,e.hiredate,e.sal,s.grade from emp e,salgrade s where e.sal between s.losal and s.hisal; 7.查询每个雇员的姓名，职位，基本工资，部门名称，工资所在公司的工资等级 1select e.ename,e.job,e.sal,d.dname,s.grade from emp e,dept d,salgrade s where e.deptno=d.deptno and e.sal between s.losal and s.hisal; 8.表的自身关联查询每个雇员的编号，姓名及其上级领导的编号，姓名 分析：因为emp表中mgr字段的原因，所以要进行自身连接 1select e.empno,e.ename,m.empno,m.ename from emp e,emp m where e.mgr=m.empno； 运行指令之后发现没有king的信息，是因为king没有上级领导，所以需要使用左外连接，即： 1select e.empno,e.ename,m.empno,m.ename from emp e,emp m where e.mgr=m.empno(+); 注：在oracle中用（+）控制左外连接和右外连接]]></content>
