@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[子查询语句]]></title>
+    <url>%2F2018%2F03%2F07%2F%E5%AD%90%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5%2F</url>
+    <content type="text"><![CDATA[1.查询公司中工资最低的雇员的完整信息 1select * from emp where sal=(select min(sal) from emp); 2.在where子句中使用子查询查询出基本工资比ALLEN低的全部雇员信息 1select * from emp where sal&lt;(select sal from emp where ename='ALLEN'); 3.查询基本工资高于公司平均薪金的全部雇员信息 1select * from emp where sal&gt;(select avg(sal) from emp); 4.查找出与ALLEN从事同一工作，并且基本工资高于雇员编号7521的全部雇员信息 1select * from emp where job=(select job from emp where ename='ALLEN') and sal&gt;(select sal from emp where empno=7521); 5.子查询返回单行多列数据查询与SCOTT从事同一工作且工资相同的雇员信息 1select * from emp where (job,sal)=(select job,sal from emp where ename='SCOTT') and ename&lt;&gt;'SCOTT'; 6.查询出与雇员7566从事同一工作且领导相同的全部雇员信息 1select * from emp where (job,mgr)=(select job,mgr from emp where empno=7566) and empno&lt;&gt;7566; 7.查询与ALLEN从事同一工作且在同一年雇佣的全部雇员信息 1select * from emp where(job,to_char(hiredate,'yyyy'))=(select job,to_char(hiredate,'yyyy') from emp where ename='ALLEN'); 8.子查询返回多行单列数据查询出与每个部门中最低工资相同的全部雇员信息 1select * from emp where sal in(select min(sal) from emp group by deptno); 9.列出每个部门经理的工资 =ANY操作符的效果和IN操作符的效果是一样的 1select * from emp where sal=ANY(select min(sal) from emp where job='MANAGER' group by deptno); &gt;ANY返回的查询结果是比子查询中的最小值还要大的全部数据&lt;ANY返回的查询结果是比子查询中的最大值还要小的全部数据 10. &lt;&gt;ALL：等价于NOT IN但是=ALL并不等价于IN&gt;ALL:比子查询中最大的值还要大，还包含了&gt;=ALL&lt;ALL:比子查询中最小的值还要小，还包含了&lt;=ALL]]></content>
+      <categories>
+        <category>Oracle</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>Oracle</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[分组统计查询]]></title>
     <url>%2F2018%2F03%2F06%2F%E5%88%86%E7%BB%84%E7%BB%9F%E8%AE%A1%E6%9F%A5%E8%AF%A2%2F</url>
     <content type="text"><![CDATA[1.查询出公司每个月支出的月工资的总和 1select sum(sal) from emp; 2.查询出公司的最高工资，最低工资，平均工资 1select max(sal),min(sal),avg(sal),round(avg(sal),2) from emp; 3.统计出公司最早雇佣日期和最晚雇佣日期 1select min(hiredate) 最早雇佣时间,max(hiredate) 最晚雇用时间 from emp; 4.统计出公司的雇员人数 1select count(empno),count(*) from emp; 5.统计出每个部门的人数 1select deptno,count(*) from emp group by deptno; 6.统计出每种职位的最低工资和最高工资 1select job,min(sal),max(sal) from emp group by job; 7.求出每个部门平均工资最高的工资 1select max(avg(sal)) from emp group by deptno; 8.查询每个部门的名称，部门人数，部门平均功能工资，平均服务年限 1select d.dname,count(e.empno),round(avg(e.sal),2) 平均工资,round(avg(months_between(sysdate,hiredate)/12),2) 平均服务年限 from dept d,emp e where e.deptno=d.deptno group by d.dname; 公司明明有4个部门但是只显示3个，是因为有一个部门没有雇员，因此需要使用右外连接 1select d.dname,count(e.empno),round(avg(e.sal),2) 平均工资,round(avg(months_between(sysdate,hiredate)/12),2) 平均服务年限 from dept d,emp e where e.deptno(+)=d.deptno group by d.dname; 9.查询公司各个工资等级雇员的数量，平均工资 1select s.grade,count(e.empno),round(avg(e.sal),2) from emp e,salgrade s where e.sal between s.losal and s.hisal group by s.grade; 10.HAVING子句查询出所有平均工资大于2000元的职位信息，平均工资，雇员人数 1select job,round(avg(sal),2),count(empno) from emp group by job having avg(sal)&gt;2000; 11.列出至少有一个员工的所有部门编号，名称，并统计这些部门的平均工资，最低工资，最高工资 1select d.deptno,d.dname,round(avg(e.sal),2),min(e.sal),max(e.sal) from emp e,dept d where e.deptno=d.deptno group by d.deptno,d.dname,d.loc having count(e.empno)&gt;1; 12.显示非销售人员工作名称以及从事同一工作雇员的月工资的总和，并且要满足从事同一工作的雇员的月工资合计大于5000元，输出结果按月工资的合计升序排列 1select job,sum(sal) sum from emp where job&lt;&gt;'SALESMAN' group by job having sum(sal)&gt;5000 order by sum asc； 总结：在SQL中主要提供了5种分组函数，分别是count,avg,sum,min,max函数使用group by子句可以对数据进行分组操作，而使用having子句可以对分组之后的数据进行再次过滤。]]></content>
