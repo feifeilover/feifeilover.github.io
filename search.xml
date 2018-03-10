@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[部分总结一]]></title>
+    <url>%2F2018%2F03%2F10%2F%E9%83%A8%E5%88%86%E6%80%BB%E7%BB%93%E4%B8%80%2F</url>
+    <content type="text"><![CDATA[SQL语句基本分为如下4类： 1.DML：基本的增，删，改，查。2.DDL：主要用于完成数据库对象的创建和管理。create table，alter index3.DCL：主要用于权限管理4.TCL：主要用于控制事务的提交和回滚。commit，rollback 简单查询1.列出表定义为了查看表或视图的列定义，显示表结构，可以使用describe（可以简写为desc）命令 1例：desc dept； 2.由于SQL和PL/SQL的关键字不能缩写，但是SQL*plus命令可以缩写。通过设置列名称显示格式，输出数据 1例：col ename format A10； 1select enamel from emp where empno=7788； 3.查询时期列①以简体中文显示日期 1alter session set nls_date_language='simplified chinese'; 1select ename,hiredate from emp; ②以美国英语显示日期 1alter session set nls_date_language='American'; 1select ename,hiredate from emp; ③以特定格式显示日期 1alter session set nls_date_format='YYYY"年"MM"月"DD"日"'; 1select ename,hiredate from emp; ④使用to_char函数定制日期显示格式 1select ename,to_char(hiredate,'yyyy-mm-dd') 修改之后的日期 from emp; 4.排除重复行 distinct 1select distinct deptno,job from emp; 5.使用算术运算符 1select ename,sal,sal*12 from emp; 6.使用通用函数处理NULL①使用NVL函数处理NULL当算术表达式包含NULL时，如果不处理NULL,那么显示结果为空 1如：select ename,sal,comm,sal+comm from emp; 观察以上的显示结果，雇员的实发工资为空，显然不能符合应用的实际需求，为了避免出现此类情况，处理NULL使用NVL函数。 1select ename,sal,comm,sal+nvl(comm,0) from emp; ②使用NVL2函数处理NULL显示雇员名，工资，补助，以及实发工资 1select ename,sal,comm,nvl2(comm,sal+comm,sal) from emp; 7.使用别名 注意：使用的别名中如果有空格等特殊字符，一定要使用上双引号 1select ename "NAME",sal*12 "Annual Salary" from emp; 限制查询 为了根据特定条件检索数据，必须在select语句中使用where子句 1.where子句中使用like操作符1）通配符%：用于表示0个或多个字符显示以大写S开头的雇员名以及工资 1select ename,sal from emp where ename like 'S%'; 2）通配符_表示单个字符显示第三个字符为大写A的雇员名及工资 1select ename,sal from emp where ename like '__A%'; 2.where子句中使用IN操作符显示岗位CLERK和MANAGER的雇员名，工资和岗位 1select ename,sal,job from emp where job in('CLERK','MANAGER'); 3.在where子句中使用IS NULL操作符 1select ename from emp where mgr is null; 注：在使用null进行比较的时候不要使用=，&lt;&gt;操作符如：select ename,mgr from emp where mgr=null;运行结果为：未选定行 4.在where子句中使用and操作符显示部门20岗位CLERK的雇员名，工资，岗位以及部门号 1select ename,sal,job,deptno from emp where deptno=20 and job='CLERK'; 5.where子句中使用or操作符显示工资高于2500或者岗位为MANAGER的雇员名，工资，岗位以及部门名 1select ename,sal,job,deptno from emp where sal&gt;2500 or job='MANAGER'; 6.where子句中使用not操作符显示补助非空的所有雇员信息 1select * from emp where comm is not null; 7.where子句中混合使用逻辑操作符显示岗位CLERK 和 MANAGER，工资高于1000并低于3000的雇员名，工资，岗位。 1select ename,sal,job from emp where job in('CLERK','MANAGER') and sal between 1000 and 3000; 排序数据1.以工资升序显示所有雇员名以及工资 12select ename,sal from emp order by sal asc;select ename,sal from emp order by sal； 2.以工资降序显示雇员名以及工资 1select ename,sal from emp order by sal desc; 3.以降序显示雇员全年工资 1select ename,sal*12 全年工资 from emp order by 全年工资 desc; 4.以部门号升序 工资降序显示雇员名，部门号和工资 1select ename,deptno,sal from emp order by deptno asc,sal desc; 总结：1.检索所有列时，使用*，检索特定列时，需要指定列名，并且列之间使用逗号隔开。2.为避免null结果，使用NVL,NVL2函数处理NULL行3.当与NULL进行比较的时候，必须使用is null或is not null4.order by必须是最后一条子句 执行升序排列null行显示在最后面 执行降序排序null行显示在最前面5.进行排序的时候，首先基于order by子句的第一列进行排序，如果第一个列的值相同，才会基于第二列排序 数字函数1.round(n,[m])用于返回四舍五入的结果 n可以是任意数字，m必须为整数 ①如果省略m，则四舍五入到整数位 ②如果m为负数，则四舍五入到小数点前第m位③如果m为正数，则四舍五入到小数点后第m位 显示部门20所有雇员的工资总和和平均工资（四舍五入） 1select sum(sal),round(avg(sal)) from emp where deptno=20; 2.trunc(n,[m])用于截取数字 m必须为正数，n可以为任意数字 ①如果省略数字m，则将数字n的小数部分截取 ②如果数字m为正数，则数字n截取到小数点后第m位③如果数字m是负数，则将数字n截取至小数点前第m位 显示部门20所有雇员的工资总和和平均工资（截取至小数点后一位）select sum(sal),trunc(avg(sal),1) from emp where deptno=20;3.mod(m,n)取余显示部门10的所有雇员名，工资以及工资除以1000之后的余数 1select ename,sal,mod(sal,1000) from emp where deptno=10; 字符函数1.upper(char):将字符串转换成大写格式显示雇员SMITH的编码，工资和岗位，以大写为例 1select empno,sal,job from emp where upper(ename)='SMITH'; 2.lower(char)：将字符串转换为小写格式3.initcap(char):将字符串每个单词的首字符大写，其他小写4.substr(char,m[,n]):char用于指定源字符串，m用于指定子串起始位置，n用于指定子串长度 1select substr('Great Wall in china',7,30) from dual; 日期时间函数1.Sysdate：用于返回当前系统日期2.add_months(d,n):用于返回特定日期时间之后或之前的月份所对应的日期时间 d用于指定日期时间数据 n可以为任意整数 显示20部门所有雇员名称，以及工作20周年之后所对应的日期 1select ename,add_months(hiredate,20*12) "20周年" from emp where deptno=20; 3.months_between(d1,d2):用于返回日期d1和d2之间相差的月数显示部门10所有雇员的名称以及工作年份select ename,trunc(months_between(sysdate,hiredate)/12) work_year from emp where deptno=10;4.next_day(d,char):用于返回特定日期之后的第一个工作日所对应的日期 d指定日期时间值，char指定工作日注：当使用此函数时，工作日必须与日期语言匹配例：日期语言为American，周五对应为Friday日期语言为简体中文，周五对应为“星期五” 显示当前日期以及下周五对应的日期 1①alter session set nls_date_language='american'; 1select sysdate,next_day(sysdate,'Friday') Friday from dual; 1select sysdate,next_day(sysdate,'Friday') 星期五 from dual; 1②alter session set nls_date_language='simplified chinese'; 1select sysdate,next_day(sysdate,'星期五') 星期五 from dual; 1select sysdate,next_day(sysdate,'星期五') Firday from dual; 5.last_day(d):用于返回特定日期所在月份的最后一天连接查询 包括以下几种连接：不等连接，自连接，外连接 1.使用等值连接1）显示所有雇员的名称，工资以及所在部门名称 1select emp.ename,emp.sal,dept.dname from emp,dept where emp.deptno=dept.deptno; 2）连接查询中使用and指定其他条件显示部门10的部门名，雇员名以及工资 1select dept.dname,emp.ename,emp.sal from emp,dept where emp.deptno=dept.deptno and dept.deptno=10; 在连接查询中使用表别名显示部门30的所有雇员名以及部门位置 1select e.ename,d.loc from emp e,dept d where e.deptno = d.deptno and d.deptno=30; 2.不等连接显示所有雇员的名称，工资以及工资等级 1select e.ename,e.sal,s.grade from emp e,salgrade s where e.sal between s.losal and s.hisal; 3.自连接 自连接是指在同一张表之间的连接查询主要用在自参照表上显示上下级关系或层次关系 如：emp表包含有empno，mgr 1select e.ename || '''SMANAGERIS' || '''MANA' from emp e,emp m where e.mgr = m.empno; 4.外连接 使用（+）操作符完成注：当使用（+）操作符执行外连接时，应该将操作符放在显示较少行（完全满足连接条件行）的那一端 1）显示部门10的部门名，雇员名以及所有其他部门名 1select d.dname,e.ename from dept d,emp e where d.deptno = e.deptno(+) and d.deptno(+)=10; 2）显示部门10的部门名，雇员名以及所有其他雇员名 1select d.dname,e.ename from dept d,emp e where e.deptno=d.deptno(+) and d.deptno(+)=10; 数据分组 数据分组通过函数group by及having共同实现的 1.常用分组函数1）max和min取得雇员的最高工资和最低工资 1select max(sal) 最高工资,min(sal) 最低工资 from emp; 2）avg和sum取得所有雇员的平均工资和工资总和 1select avg(sal) 平均工资,sum(sal) 总计工资 from emp; 3）count取得表emp的雇员总数 1select count(*) 雇员总数 from emp; 2使用group by进行单列分组1）显示每个部门的平均工资 1select deptno,avg(sal) from emp group by deptno; 2)使用group by进行多列分组显示每个部门各种岗位的平均工资和最高工资 1select deptno,job,avg(sal),max(sal) from emp group by deptno,job; 3）使用order by子句改变分组排序结果显示每个部门的部门号以及工资总额，以工资总额进行降序排列 1select deptno,sum(sal) from emp group by deptno order by sum(sal) desc; 3.使用having子句限制分组结果 having子句必须跟在group by子句后面 显示平均工资低于2500的部门号，平均工资以及最高工资 1select deptno,avg(sal),max(sal) from emp group by deptno having avg(sal)&lt;2500; 子查询子查询分为单行子查询，多行子查询和多列子查询1）单行子查询显示SCOTT同部门的所有其他雇员姓名，工资和部门号 1select ename,sal,deptno from emp where deptno=(select deptno from emp where ename='SCOTT') and ename&lt;&gt;'SCOTT'; 2）多行子查询①在多行子查询中使用IN操作符显示匹配于部门10岗位的雇员名，岗位，工资，部门号 1select ename,job,sal,deptno from emp where job in(select distinct job from emp where deptno=10); 2）在多行子查询中使用ALL操作符显示高于部门30所有雇员工资的雇员名，工资和部门号 1select ename,sal,deptno from emp where sal&gt;all(select sal from emp where deptno=30); 3）在多行子查询中使用any显示高于部门30任意雇员工资的雇员名，工资和部门号 1select ename,sal,deptno from emp where sal&gt;any(select sal from emp where deptno=30); 3.多列子查询显示与SMITH部门和岗位完全相同的所有雇员 1select ename,job,sal,deptno from emp where(deptno,job)=(select deptno,job from emp where ename ='SMITH') and ename&lt;&gt;'SMITH';]]></content>
+      <categories>
+        <category>Oracle</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>Oracle</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[子查询语句]]></title>
     <url>%2F2018%2F03%2F07%2F%E5%AD%90%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5%2F</url>
     <content type="text"><![CDATA[1.查询公司中工资最低的雇员的完整信息 1select * from emp where sal=(select min(sal) from emp); 2.在where子句中使用子查询查询出基本工资比ALLEN低的全部雇员信息 1select * from emp where sal&lt;(select sal from emp where ename='ALLEN'); 3.查询基本工资高于公司平均薪金的全部雇员信息 1select * from emp where sal&gt;(select avg(sal) from emp); 4.查找出与ALLEN从事同一工作，并且基本工资高于雇员编号7521的全部雇员信息 1select * from emp where job=(select job from emp where ename='ALLEN') and sal&gt;(select sal from emp where empno=7521); 5.子查询返回单行多列数据查询与SCOTT从事同一工作且工资相同的雇员信息 1select * from emp where (job,sal)=(select job,sal from emp where ename='SCOTT') and ename&lt;&gt;'SCOTT'; 6.查询出与雇员7566从事同一工作且领导相同的全部雇员信息 1select * from emp where (job,mgr)=(select job,mgr from emp where empno=7566) and empno&lt;&gt;7566; 7.查询与ALLEN从事同一工作且在同一年雇佣的全部雇员信息 1select * from emp where(job,to_char(hiredate,'yyyy'))=(select job,to_char(hiredate,'yyyy') from emp where ename='ALLEN'); 8.子查询返回多行单列数据查询出与每个部门中最低工资相同的全部雇员信息 1select * from emp where sal in(select min(sal) from emp group by deptno); 9.列出每个部门经理的工资 =ANY操作符的效果和IN操作符的效果是一样的 1select * from emp where sal=ANY(select min(sal) from emp where job='MANAGER' group by deptno); &gt;ANY返回的查询结果是比子查询中的最小值还要大的全部数据&lt;ANY返回的查询结果是比子查询中的最大值还要小的全部数据 10. &lt;&gt;ALL：等价于NOT IN但是=ALL并不等价于IN&gt;ALL:比子查询中最大的值还要大，还包含了&gt;=ALL&lt;ALL:比子查询中最小的值还要小，还包含了&lt;=ALL]]></content>
@@ -68,8 +80,8 @@
         <category>Jsp</category>
       </categories>
       <tags>
-        <tag>Jsp</tag>
         <tag>java</tag>
+        <tag>Jsp</tag>
       </tags>
   </entry>
   <entry>
@@ -81,8 +93,8 @@
         <category>正则表达式</category>
       </categories>
       <tags>
-        <tag>java</tag>
         <tag>javascript</tag>
+        <tag>java</tag>
         <tag>正则表达式</tag>
       </tags>
   </entry>
@@ -94,8 +106,8 @@
         <category>JavaScript</category>
       </categories>
       <tags>
-        <tag>java</tag>
         <tag>javascript</tag>
+        <tag>java</tag>
       </tags>
   </entry>
   <entry>
@@ -106,8 +118,8 @@
         <category>JavaScript</category>
       </categories>
       <tags>
-        <tag>java</tag>
         <tag>javascript</tag>
+        <tag>java</tag>
       </tags>
   </entry>
   <entry>
@@ -118,8 +130,8 @@
         <category>JavaScript</category>
       </categories>
       <tags>
-        <tag>java</tag>
         <tag>javascript</tag>
+        <tag>java</tag>
       </tags>
   </entry>
   <entry>
@@ -130,8 +142,8 @@
         <category>JavaScript</category>
       </categories>
       <tags>
-        <tag>java</tag>
         <tag>javascript</tag>
+        <tag>java</tag>
       </tags>
   </entry>
   <entry>
@@ -142,8 +154,8 @@
         <category>JavaScript</category>
       </categories>
       <tags>
-        <tag>java</tag>
         <tag>javascript</tag>
+        <tag>java</tag>
       </tags>
   </entry>
   <entry>
@@ -154,8 +166,8 @@
         <category>JavaScript</category>
       </categories>
       <tags>
-        <tag>java</tag>
         <tag>javascript</tag>
+        <tag>java</tag>
       </tags>
   </entry>
   <entry>
@@ -166,8 +178,8 @@
         <category>JavaScript</category>
       </categories>
       <tags>
-        <tag>java</tag>
         <tag>javascript</tag>
+        <tag>java</tag>
       </tags>
   </entry>
   <entry>
@@ -178,8 +190,8 @@
         <category>JavaScript</category>
       </categories>
       <tags>
-        <tag>java</tag>
         <tag>javascript</tag>
+        <tag>java</tag>
       </tags>
   </entry>
   <entry>
@@ -190,8 +202,8 @@
         <category>JavaScript</category>
       </categories>
       <tags>
-        <tag>java</tag>
         <tag>javascript</tag>
+        <tag>java</tag>
       </tags>
   </entry>
   <entry>
@@ -202,8 +214,8 @@
         <category>JavaScript</category>
       </categories>
       <tags>
-        <tag>java</tag>
         <tag>javascript</tag>
+        <tag>java</tag>
       </tags>
   </entry>
 </search>

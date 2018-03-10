@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="java,Oracle," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="SQL语句基本分为如下4类：  1.DML：基本的增，删，改，查。2.DDL：主要用于完成数据库对象的创建和管理。create table，alter index3.DCL：主要用于权限管理4.TCL：主要用于控制事务的提交和回滚。commit，rollback  简单查询1.列出表定义为了查看表或视图的列定义，显示表结构，可以使用describe（可以简写为desc）命令 1例：desc dep">
+<meta name="keywords" content="java,Oracle">
+<meta property="og:type" content="article">
+<meta property="og:title" content="部分总结一">
+<meta property="og:url" content="http://yoursite.com/2018/03/10/部分总结一/index.html">
+<meta property="og:site_name" content="菲菲博客">
+<meta property="og:description" content="SQL语句基本分为如下4类：  1.DML：基本的增，删，改，查。2.DDL：主要用于完成数据库对象的创建和管理。create table，alter index3.DCL：主要用于权限管理4.TCL：主要用于控制事务的提交和回滚。commit，rollback  简单查询1.列出表定义为了查看表或视图的列定义，显示表结构，可以使用describe（可以简写为desc）命令 1例：desc dep">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://img.blog.csdn.net/20180310203957445?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGlueWUxMjMw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="http://img.blog.csdn.net/20180310204057910?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGlueWUxMjMw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="http://img.blog.csdn.net/20180310204137835?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGlueWUxMjMw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="http://img.blog.csdn.net/2018031020421661?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGlueWUxMjMw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="http://img.blog.csdn.net/20180310204249580?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGlueWUxMjMw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="http://img.blog.csdn.net/2018031020433434?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGlueWUxMjMw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="http://img.blog.csdn.net/20180310204428926?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGlueWUxMjMw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="http://img.blog.csdn.net/20180310204846479?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGlueWUxMjMw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="http://img.blog.csdn.net/20180310205724926?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGlueWUxMjMw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="http://img.blog.csdn.net/20180310210323929?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGlueWUxMjMw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="http://img.blog.csdn.net/20180310210454745?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGlueWUxMjMw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="http://img.blog.csdn.net/20180310210546948?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGlueWUxMjMw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="http://img.blog.csdn.net/20180310210637298?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGlueWUxMjMw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="http://img.blog.csdn.net/20180310210713279?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGlueWUxMjMw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="http://img.blog.csdn.net/20180310211006136?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGlueWUxMjMw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="http://img.blog.csdn.net/20180310211248657?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGlueWUxMjMw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="http://img.blog.csdn.net/201803102113512?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGlueWUxMjMw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="http://img.blog.csdn.net/20180310211436105?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGlueWUxMjMw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:updated_time" content="2018-03-10T13:20:30.001Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="部分总结一">
+<meta name="twitter:description" content="SQL语句基本分为如下4类：  1.DML：基本的增，删，改，查。2.DDL：主要用于完成数据库对象的创建和管理。create table，alter index3.DCL：主要用于权限管理4.TCL：主要用于控制事务的提交和回滚。commit，rollback  简单查询1.列出表定义为了查看表或视图的列定义，显示表结构，可以使用describe（可以简写为desc）命令 1例：desc dep">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20180310203957445?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGlueWUxMjMw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/03/10/部分总结一/"/>
+
+
+
+
+
+  <title>部分总结一 | 菲菲博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">菲菲博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">会笑的女生运气不会太差</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/10/部分总结一/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="feifei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="菲菲博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">部分总结一</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-10T21:19:27+08:00">
+                2018-03-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Oracle/" itemprop="url" rel="index">
+                    <span itemprop="name">Oracle</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>SQL语句基本分为如下4类：</strong></p>
+<blockquote>
+<p>1.DML：基本的增，删，改，查。<br>2.DDL：主要用于完成数据库对象的创建和管理。create table，alter index<br>3.DCL：主要用于权限管理<br>4.TCL：主要用于控制事务的提交和回滚。commit，rollback</p>
+</blockquote>
+<p><strong>简单查询</strong><br>1.列出表定义<br>为了查看表或视图的列定义，显示表结构，可以使用<code>describe</code>（可以简写为<code>desc</code>）命令</p>
+<figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">例：<span class="keyword">desc</span> dept；</span><br></pre></td></tr></table></figure>
+<p>2.由于SQL和PL/SQL的关键字不能缩写，但是SQL*plus命令可以缩写。通过设置列名称显示格式，输出数据</p>
+<figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">例：col ename <span class="built_in">format</span> A10；</span><br></pre></td></tr></table></figure>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> enamel <span class="keyword">from</span> emp <span class="keyword">where</span> empno=<span class="number">7788</span>；</span><br></pre></td></tr></table></figure>
+<p>3.查询时期列<br>①以<code>简体中文</code>显示日期</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter session <span class="builtin-name">set</span> <span class="attribute">nls_date_language</span>=<span class="string">'simplified chinese'</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> ename,hiredate <span class="keyword">from</span> emp;</span><br></pre></td></tr></table></figure>
+<p><img src="http://img.blog.csdn.net/20180310203957445?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGlueWUxMjMw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>②以<code>美国英语</code>显示日期</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter session <span class="builtin-name">set</span> <span class="attribute">nls_date_language</span>=<span class="string">'American'</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> ename,hiredate <span class="keyword">from</span> emp;</span><br></pre></td></tr></table></figure>
+<p><img src="http://img.blog.csdn.net/20180310204057910?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGlueWUxMjMw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>③以<code>特定格式</code>显示日期</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter session <span class="builtin-name">set</span> <span class="attribute">nls_date_format</span>=<span class="string">'YYYY"年"MM"月"DD"日"'</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> ename,hiredate <span class="keyword">from</span> emp;</span><br></pre></td></tr></table></figure>
+<p><img src="http://img.blog.csdn.net/20180310204137835?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGlueWUxMjMw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>④使用<code>to_char函数</code>定制日期显示格式</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> ename,to_char(hiredate,<span class="string">'yyyy-mm-dd'</span>) 修改之后的日期 <span class="keyword">from</span> emp;</span><br></pre></td></tr></table></figure>
+<p><img src="http://img.blog.csdn.net/2018031020421661?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGlueWUxMjMw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>4.排除重复行  <code>distinct</code></p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">distinct</span> deptno,job <span class="keyword">from</span> emp;</span><br></pre></td></tr></table></figure>
+<p>5.使用<code>算术运算符</code></p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> ename,sal,sal*<span class="number">12</span> <span class="keyword">from</span> emp;</span><br></pre></td></tr></table></figure>
+<p><img src="http://img.blog.csdn.net/20180310204249580?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGlueWUxMjMw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>6.使用通用函数处理NULL<br>①使用<code>NVL函数</code>处理NULL<br>当算术表达式包含NULL时，如果不处理NULL,那么显示结果为空</p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">如：<span class="keyword">select</span> ename,sal,comm,sal+comm <span class="keyword">from</span> emp;</span><br></pre></td></tr></table></figure>
+<p><img src="http://img.blog.csdn.net/2018031020433434?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGlueWUxMjMw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<blockquote>
+<p>观察以上的显示结果，雇员的实发工资为空，显然不能符合应用的实际需求，为了避免出现此类情况，处理NULL使用NVL函数。</p>
+</blockquote>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> ename,sal,comm,sal+nvl(comm,<span class="number">0</span>) <span class="keyword">from</span> emp;</span><br></pre></td></tr></table></figure>
+<p><img src="http://img.blog.csdn.net/20180310204428926?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGlueWUxMjMw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>②使用<code>NVL2函数</code>处理NULL<br>显示雇员名，工资，补助，以及实发工资</p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> ename,sal,comm,nvl2(comm,sal+comm,sal) <span class="keyword">from</span> emp;</span><br></pre></td></tr></table></figure>
+<p><img src="http://img.blog.csdn.net/20180310204846479?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGlueWUxMjMw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>7.使用<code>别名</code></p>
+<blockquote>
+<p>注意：使用的别名中如果有空格等特殊字符，一定要使用上双引号</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> ename <span class="string">"NAME"</span>,sal*<span class="number">12</span> <span class="string">"Annual Salary"</span> <span class="keyword">from</span> emp;</span><br></pre></td></tr></table></figure>
+<p><strong>限制查询</strong></p>
+<blockquote>
+<p>为了根据特定条件检索数据，必须在select语句中使用where子句</p>
+</blockquote>
+<p>1.where子句中使用<code>like</code>操作符<br>1）<code>通配符%</code>：用于表示0个或多个字符<br>显示以大写S开头的雇员名以及工资</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> ename,sal <span class="keyword">from</span> emp <span class="keyword">where</span> ename <span class="keyword">like</span> <span class="string">'S%'</span>;</span><br></pre></td></tr></table></figure>
+<p>2）<code>通配符_</code>表示单个字符<br>显示第三个字符为大写A的雇员名及工资</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> ename,sal <span class="keyword">from</span> emp <span class="keyword">where</span> ename <span class="keyword">like</span> <span class="string">'__A%'</span>;</span><br></pre></td></tr></table></figure>
+<p>2.where子句中使用IN操作符<br>显示岗位CLERK和MANAGER的雇员名，工资和岗位</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> ename,sal,job <span class="keyword">from</span> emp <span class="keyword">where</span> job <span class="keyword">in</span>(<span class="string">'CLERK'</span>,<span class="string">'MANAGER'</span>);</span><br></pre></td></tr></table></figure>
+<p>3.在where子句中使用<code>IS NULL</code>操作符</p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> ename <span class="keyword">from</span> emp <span class="keyword">where</span> mgr <span class="keyword">is</span> <span class="literal">null</span>;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注：在使用null进行比较的时候不要使用=，&lt;&gt;操作符<br>如：select ename,mgr from emp where mgr=null;<br>运行结果为：未选定行</p>
+</blockquote>
+<p>4.在where子句中使用<code>and</code>操作符<br>显示部门20岗位CLERK的雇员名，工资，岗位以及部门号</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select ename,sal,job,deptno <span class="keyword">from</span> emp where <span class="attribute">deptno</span>=20 <span class="keyword">and</span> <span class="attribute">job</span>=<span class="string">'CLERK'</span>;</span><br></pre></td></tr></table></figure>
+<p>5.where子句中使用<code>or</code>操作符<br>显示工资高于2500或者岗位为MANAGER的雇员名，工资，岗位以及部门名</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> ename,sal,job,deptno <span class="keyword">from</span> emp <span class="keyword">where</span> sal&gt;<span class="number">2500</span> <span class="keyword">or</span> job=<span class="string">'MANAGER'</span>;</span><br></pre></td></tr></table></figure>
+<p>6.where子句中使用<code>not</code>操作符<br>显示补助非空的所有雇员信息</p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> emp  <span class="keyword">where</span> comm <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">null</span>;</span><br></pre></td></tr></table></figure>
+<p>7.where子句中混合使用<code>逻辑操作符</code><br>显示岗位CLERK 和 MANAGER，工资高于1000并低于3000的雇员名，工资，岗位。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> ename,sal,job <span class="keyword">from</span> emp <span class="keyword">where</span> job <span class="keyword">in</span>(<span class="string">'CLERK'</span>,<span class="string">'MANAGER'</span>) <span class="keyword">and</span> sal <span class="keyword">between</span> <span class="number">1000</span> <span class="keyword">and</span> <span class="number">3000</span>;</span><br></pre></td></tr></table></figure>
+<p><strong>排序数据</strong><br>1.以工资<code>升序</code>显示所有雇员名以及工资</p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> ename,sal <span class="keyword">from</span> emp <span class="keyword">order</span> <span class="keyword">by</span> sal <span class="keyword">asc</span>;</span><br><span class="line"><span class="keyword">select</span> ename,sal <span class="keyword">from</span> emp <span class="keyword">order</span> <span class="keyword">by</span> sal；</span><br></pre></td></tr></table></figure>
+<p>2.以工资<code>降序</code>显示雇员名以及工资</p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> ename,sal <span class="keyword">from</span> emp <span class="keyword">order</span> <span class="keyword">by</span> sal <span class="keyword">desc</span>;</span><br></pre></td></tr></table></figure>
+<p>3.以<code>降序</code>显示雇员全年工资</p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> ename,sal*<span class="number">12</span> 全年工资 <span class="keyword">from</span> emp <span class="keyword">order</span> <span class="keyword">by</span> 全年工资 <span class="keyword">desc</span>;</span><br></pre></td></tr></table></figure>
+<p>4.以<code>部门号升序</code> <code>工资降序</code>显示雇员名，部门号和工资</p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> ename,deptno,sal <span class="keyword">from</span> emp <span class="keyword">order</span> <span class="keyword">by</span> deptno <span class="keyword">asc</span>,sal <span class="keyword">desc</span>;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>总结：1.检索所有列时，使用*，检索特定列时，需要指定列名，并且列之间使用逗号隔开。<br>2.为避免null结果，使用NVL,NVL2函数处理NULL行<br>3.当与NULL进行比较的时候，必须使用is null或is not null<br>4.order by必须是最后一条子句 执行升序排列null行显示在最后面 执行降序排序null行显示在最前面<br>5.进行排序的时候，首先基于order by子句的第一列进行排序，如果第一个列的值相同，才会基于第二列排序</p>
+</blockquote>
+<p><strong>数字函数</strong><br>1.<code>round(n,[m])</code>用于返回四舍五入的结果</p>
+<blockquote>
+<p>n可以是任意数字，m必须为整数<br> ①如果省略m，则四舍五入到整数位<br> ②如果m为负数，则四舍五入到小数点前第m位<br>③如果m为正数，则四舍五入到小数点后第m位</p>
+</blockquote>
+<p>显示部门20所有雇员的工资总和和平均工资（四舍五入）</p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">sum</span>(sal),<span class="built_in">round</span>(<span class="built_in">avg</span>(sal)) <span class="keyword">from</span> emp <span class="keyword">where</span> deptno=<span class="number">20</span>;</span><br></pre></td></tr></table></figure>
+<p>2.<code>trunc(n,[m])</code>用于截取数字</p>
+<blockquote>
+<p>m必须为正数，n可以为任意数字<br> ①如果省略数字m，则将数字n的小数部分截取<br> ②如果数字m为正数，则数字n截取到小数点后第m位<br>③如果数字m是负数，则将数字n截取至小数点前第m位</p>
+</blockquote>
+<p>显示部门20所有雇员的工资总和和平均工资（截取至小数点后一位）<br>select sum(sal),trunc(avg(sal),1) from emp where deptno=20;<br>3.<code>mod(m,n)</code>取余<br>显示部门10的所有雇员名，工资以及工资除以1000之后的余数</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> ename,sal,<span class="keyword">mod</span>(sal,<span class="number">1000</span>) <span class="keyword">from</span> emp <span class="keyword">where</span> deptno=<span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+<p><strong>字符函数</strong><br>1.<code>upper(char)</code>:将字符串转换成大写格式<br>显示雇员SMITH的编码，工资和岗位，以大写为例</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> empno,sal,job <span class="keyword">from</span> emp <span class="keyword">where</span> <span class="keyword">upper</span>(ename)=<span class="string">'SMITH'</span>;</span><br></pre></td></tr></table></figure>
+<p><img src="http://img.blog.csdn.net/20180310205724926?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGlueWUxMjMw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>2.<code>lower(char)</code>：将字符串转换为小写格式<br>3.<code>initcap(char)</code>:将字符串每个单词的首字符大写，其他小写<br>4.<code>substr(char,m[,n])</code>:char用于指定源字符串，m用于指定子串起始位置，n用于指定子串长度</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">substr</span>(<span class="string">'Great Wall in china'</span>,<span class="number">7</span>,<span class="number">30</span>) <span class="keyword">from</span> dual;</span><br></pre></td></tr></table></figure>
+<p><strong>日期时间函数</strong><br>1.<code>Sysdate</code>：用于返回当前系统日期<br>2.<code>add_months(d,n)</code>:用于返回特定日期时间之后或之前的月份所对应的日期时间</p>
+<blockquote>
+<p>d用于指定日期时间数据<br> n可以为任意整数</p>
+</blockquote>
+<p>显示20部门所有雇员名称，以及工作20周年之后所对应的日期</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select ename,add_months(hiredate,20<span class="number">*12</span>) <span class="string">"20周年"</span> <span class="keyword">from</span> emp where <span class="attribute">deptno</span>=20;</span><br></pre></td></tr></table></figure>
+<p>3.<code>months_between(d1,d2)</code>:用于返回日期d1和d2之间相差的月数<br>显示部门10所有雇员的名称以及工作年份<br><code>select ename,trunc(months_between(sysdate,hiredate)/12) work_year from emp where</code> deptno=10;<br><img src="http://img.blog.csdn.net/20180310210323929?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGlueWUxMjMw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>4.<code>next_day(d,char)</code>:用于返回特定日期之后的第一个工作日所对应的日期</p>
+<blockquote>
+<p>d指定日期时间值，char指定工作日<br>注：当使用此函数时，工作日必须与日期语言匹配<br>例：日期语言为American，周五对应为Friday<br>日期语言为简体中文，周五对应为“星期五”</p>
+</blockquote>
+<p>显示当前日期以及下周五对应的日期</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">①alter session <span class="builtin-name">set</span> <span class="attribute">nls_date_language</span>=<span class="string">'american'</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">sysdate</span>,next_day(<span class="keyword">sysdate</span>,<span class="string">'Friday'</span>) Friday <span class="keyword">from</span> dual;</span><br></pre></td></tr></table></figure>
+<p><img src="http://img.blog.csdn.net/20180310210454745?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGlueWUxMjMw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">sysdate</span>,next_day(<span class="keyword">sysdate</span>,<span class="string">'Friday'</span>) 星期五 <span class="keyword">from</span> dual;</span><br></pre></td></tr></table></figure>
+<p><img src="http://img.blog.csdn.net/20180310210546948?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGlueWUxMjMw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">②alter session <span class="builtin-name">set</span> <span class="attribute">nls_date_language</span>=<span class="string">'simplified chinese'</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">sysdate</span>,next_day(<span class="keyword">sysdate</span>,<span class="string">'星期五'</span>) 星期五 <span class="keyword">from</span> dual;</span><br></pre></td></tr></table></figure>
+<p><img src="http://img.blog.csdn.net/20180310210637298?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGlueWUxMjMw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">sysdate</span>,next_day(<span class="keyword">sysdate</span>,<span class="string">'星期五'</span>) Firday <span class="keyword">from</span> dual;</span><br></pre></td></tr></table></figure>
+<p><img src="http://img.blog.csdn.net/20180310210713279?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGlueWUxMjMw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>5.<code>last_day(d)</code>:用于返回特定日期所在月份的最后一天<br><strong>连接查询</strong></p>
+<blockquote>
+<p>包括以下几种连接：不等连接，自连接，外连接</p>
+</blockquote>
+<p>1.使用<code>等值连接</code><br>1）显示所有雇员的名称，工资以及所在部门名称</p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> emp.ename,emp.sal,dept.dname <span class="keyword">from</span> emp,dept <span class="keyword">where</span> emp.deptno=dept.deptno;</span><br></pre></td></tr></table></figure>
+<p>2）连接查询中使用and指定其他条件<br>显示部门10的部门名，雇员名以及工资</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select dept.dname,emp.ename,emp.sal <span class="keyword">from</span> emp,dept where emp.<span class="attribute">deptno</span>=dept.deptno <span class="keyword">and</span> dept.<span class="attribute">deptno</span>=10;</span><br></pre></td></tr></table></figure>
+<p>在连接查询中<code>使用表别名</code><br>显示部门30的所有雇员名以及部门位置</p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">e</span>.ename,d.loc <span class="keyword">from</span> emp <span class="built_in">e</span>,dept d <span class="keyword">where</span> <span class="built_in">e</span>.deptno = d.deptno <span class="keyword">and</span> d.deptno=<span class="number">30</span>;</span><br></pre></td></tr></table></figure>
+<p>2.<code>不等连接</code><br>显示所有雇员的名称，工资以及工资等级</p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">e</span>.ename,<span class="built_in">e</span>.sal,s.grade <span class="keyword">from</span> emp <span class="built_in">e</span>,salgrade s <span class="keyword">where</span> <span class="built_in">e</span>.sal <span class="keyword">between</span> s.losal <span class="keyword">and</span> s.hisal;</span><br></pre></td></tr></table></figure>
+<p>3.<code>自连接</code></p>
+<blockquote>
+<p>自连接是指在同一张表之间的连接查询<br>主要用在自参照表上显示上下级关系或层次关系</p>
+</blockquote>
+<p>如：emp表包含有empno，mgr</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select e.ename || <span class="string">'''SMANAGERIS' || '''</span>MANA<span class="string">' from emp e,emp m where e.mgr = m.empno;</span></span><br></pre></td></tr></table></figure>
+<p>4.<code>外连接</code></p>
+<blockquote>
+<p>使用（+）操作符完成<br>注：当使用（+）操作符执行外连接时，应该将操作符放在显示较少行（完全满足连接条件行）的那一端</p>
+</blockquote>
+<p>1）显示部门10的部门名，雇员名以及所有其他部门名</p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> d.dname,<span class="built_in">e</span>.ename <span class="keyword">from</span> dept d,emp <span class="built_in">e</span> <span class="keyword">where</span> d.deptno = <span class="built_in">e</span>.deptno(+) <span class="keyword">and</span> d.deptno(+)=<span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+<p><img src="http://img.blog.csdn.net/20180310211006136?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGlueWUxMjMw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>2）显示部门10的部门名，雇员名以及所有其他雇员名</p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> d.dname,<span class="built_in">e</span>.ename <span class="keyword">from</span> dept d,emp <span class="built_in">e</span> <span class="keyword">where</span> <span class="built_in">e</span>.deptno=d.deptno(+) <span class="keyword">and</span> d.deptno(+)=<span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+<p><img src="http://img.blog.csdn.net/20180310211248657?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGlueWUxMjMw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br><strong>数据分组</strong></p>
+<blockquote>
+<p>数据分组通过函数group by及having共同实现的</p>
+</blockquote>
+<p>1.常用分组函数<br>1）<code>max和min</code><br>取得雇员的最高工资和最低工资</p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">max</span>(sal) 最高工资,<span class="built_in">min</span>(sal) 最低工资 <span class="keyword">from</span> emp;</span><br></pre></td></tr></table></figure>
+<p><img src="http://img.blog.csdn.net/201803102113512?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGlueWUxMjMw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>2）<code>avg和sum</code><br>取得所有雇员的平均工资和工资总和</p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">avg</span>(sal) 平均工资,<span class="built_in">sum</span>(sal) 总计工资 <span class="keyword">from</span> emp;</span><br></pre></td></tr></table></figure>
+<p><img src="http://img.blog.csdn.net/20180310211436105?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGlueWUxMjMw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>3）<code>count</code><br>取得表emp的雇员总数</p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(*) 雇员总数 <span class="keyword">from</span> emp;</span><br></pre></td></tr></table></figure>
+<p>2使用<code>group by</code>进行单列分组<br>1）显示每个部门的平均工资</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select deptno,avg(sal) <span class="keyword">from</span> emp<span class="built_in"> group </span>by deptno;</span><br></pre></td></tr></table></figure>
+<p>2)使用<code>group by</code>进行多列分组<br>显示每个部门各种岗位的平均工资和最高工资</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select deptno,job,avg(sal),max(sal) <span class="keyword">from</span> emp<span class="built_in"> group </span>by deptno,job;</span><br></pre></td></tr></table></figure>
+<p>3）使用<code>order by</code>子句改变分组排序结果<br>显示每个部门的部门号以及工资总额，以工资总额进行降序排列</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select deptno,sum(sal) <span class="keyword">from</span> emp<span class="built_in"> group </span>by deptno order by sum(sal) desc;</span><br></pre></td></tr></table></figure>
+<p>3.使用<code>having</code>子句限制分组结果</p>
+<blockquote>
+<p>having子句必须跟在group by子句后面</p>
+</blockquote>
+<p>显示平均工资低于2500的部门号，平均工资以及最高工资</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select deptno,avg(sal),max(sal) <span class="keyword">from</span> emp<span class="built_in"> group </span>by deptno having avg(sal)&lt;2500;</span><br></pre></td></tr></table></figure>
+<p><strong>子查询</strong><br>子查询分为单行子查询，多行子查询和多列子查询<br>1）单行子查询<br>显示SCOTT同部门的所有其他雇员姓名，工资和部门号</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> ename,sal,deptno <span class="keyword">from</span> emp <span class="keyword">where</span> deptno=(<span class="keyword">select</span> deptno <span class="keyword">from</span> emp <span class="keyword">where</span> ename=<span class="string">'SCOTT'</span>) <span class="keyword">and</span> ename&lt;&gt;<span class="string">'SCOTT'</span>;</span><br></pre></td></tr></table></figure>
+<p>2）多行子查询<br>①在多行子查询中使用<code>IN操作符</code><br>显示匹配于部门10岗位的雇员名，岗位，工资，部门号</p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> ename,job,sal,deptno <span class="keyword">from</span> emp <span class="keyword">where</span> job <span class="keyword">in</span>(<span class="keyword">select</span> <span class="keyword">distinct</span> job <span class="keyword">from</span> emp <span class="keyword">where</span> deptno=<span class="number">10</span>);</span><br></pre></td></tr></table></figure>
+<p>2）在多行子查询中使用<code>ALL操作符</code><br>显示高于部门30所有雇员工资的雇员名，工资和部门号</p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> ename,sal,deptno <span class="keyword">from</span> emp <span class="keyword">where</span> sal&gt;<span class="keyword">all</span>(<span class="keyword">select</span> sal <span class="keyword">from</span> emp <span class="keyword">where</span> deptno=<span class="number">30</span>);</span><br></pre></td></tr></table></figure>
+<p>3）在多行子查询中使用<code>any</code><br>显示高于部门30任意雇员工资的雇员名，工资和部门号</p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> ename,sal,deptno <span class="keyword">from</span> emp <span class="keyword">where</span> sal&gt;<span class="keyword">any</span>(<span class="keyword">select</span> sal <span class="keyword">from</span> emp <span class="keyword">where</span> deptno=<span class="number">30</span>);</span><br></pre></td></tr></table></figure>
+<p>3.多列子查询<br>显示与SMITH部门和岗位完全相同的所有雇员</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> ename,job,sal,deptno <span class="keyword">from</span> emp <span class="keyword">where</span>(deptno,job)=(<span class="keyword">select</span> deptno,job <span class="keyword">from</span> emp <span class="keyword">where</span> ename =<span class="string">'SMITH'</span>) <span class="keyword">and</span> ename&lt;&gt;<span class="string">'SMITH'</span>;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"># java</a>
+          
+            <a href="/tags/Oracle/" rel="tag"># Oracle</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/07/子查询语句/" rel="next" title="子查询语句">
+                <i class="fa fa-chevron-left"></i> 子查询语句
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMzI4MC85ODM3"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">feifei</p>
+              <p class="site-description motion-element" itemprop="description">坚持做最好的自己</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/feifeilover" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/u/5673876223" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/f45cebeb9a5c" target="_blank" title="简书">
+                      
+                        <i class="fa fa-fw fa-book"></i>简书</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://blog.csdn.net/xinye1230" target="_blank" title="csdn">
+                      
+                        <i class="fa fa-fw fa-crosshairs"></i>csdn</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+   <!--  <i class="fa fa-user"></i> -->
+  </span>
+  <span class="author" itemprop="copyrightHolder">feifei</span>
+
+  
+</div>
+
+
+  <!--<div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>  -->
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+ <!-- <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>  -->
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<!-- ҳ����С���� -->
+<script type="text/javascript" src="/js/src/love.js"></script>
