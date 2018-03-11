@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="java,Oracle," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="1.常见的数据类型(四种)数据表属于各种类型的一个集合  （oracle特有的）varchar(n)：表示字符串，其中n表示最大的长度，一般保存长度比较小的类型number(n,m)：number(n):表示整数数据，最多不能超过n个长度，可以使用int floatnumber(n,m)：表示小数点占m位，整数位占n-m位 date：表示保存的日期时间数据clob：表示大文本数据，最多可以保存4G">
+<meta name="keywords" content="java,Oracle">
+<meta property="og:type" content="article">
+<meta property="og:title" content="表的创建与管理">
+<meta property="og:url" content="http://yoursite.com/2018/03/11/表的创建与管理/index.html">
+<meta property="og:site_name" content="菲菲博客">
+<meta property="og:description" content="1.常见的数据类型(四种)数据表属于各种类型的一个集合  （oracle特有的）varchar(n)：表示字符串，其中n表示最大的长度，一般保存长度比较小的类型number(n,m)：number(n):表示整数数据，最多不能超过n个长度，可以使用int floatnumber(n,m)：表示小数点占m位，整数位占n-m位 date：表示保存的日期时间数据clob：表示大文本数据，最多可以保存4G">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://img.blog.csdn.net/20180311150753872?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGlueWUxMjMw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="http://img.blog.csdn.net/20180311151341953?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGlueWUxMjMw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="http://img.blog.csdn.net/20180311151424885?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGlueWUxMjMw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:updated_time" content="2018-03-11T07:20:05.557Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="表的创建与管理">
+<meta name="twitter:description" content="1.常见的数据类型(四种)数据表属于各种类型的一个集合  （oracle特有的）varchar(n)：表示字符串，其中n表示最大的长度，一般保存长度比较小的类型number(n,m)：number(n):表示整数数据，最多不能超过n个长度，可以使用int floatnumber(n,m)：表示小数点占m位，整数位占n-m位 date：表示保存的日期时间数据clob：表示大文本数据，最多可以保存4G">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20180311150753872?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGlueWUxMjMw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/03/11/表的创建与管理/"/>
+
+
+
+
+
+  <title>表的创建与管理 | 菲菲博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">菲菲博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">会笑的女生运气不会太差</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/11/表的创建与管理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="feifei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="菲菲博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">表的创建与管理</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-11T15:18:56+08:00">
+                2018-03-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Oracle/" itemprop="url" rel="index">
+                    <span itemprop="name">Oracle</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>1.<code>常见的数据类型</code>(四种)<br>数据表属于各种类型的一个集合</p>
+<blockquote>
+<p>（oracle特有的）<code>varchar(n)</code>：表示字符串，其中n表示最大的长度，一般保存长度比较小的类型<br><code>number(n,m)</code>：number(n):表示整数数据，最多不能超过n个长度，可以使用int float<br>number(n,m)：表示小数点占m位，整数位占n-m位 date：表示保存的日期时间数据<br><code>clob</code>：表示大文本数据，最多可以保存4G的文字，可以保存《红楼梦》<br>（现在不常用）<code>blob</code>：表示二进制数据，最多可以保存4G的内容，可以保存文字，图片，音乐，电影。</p>
+</blockquote>
+<p>2.<code>表的创建</code><br>创建一个如下的成员表<br><img src="http://img.blog.csdn.net/20180311150753872?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGlueWUxMjMw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>①创建此member表</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> <span class="keyword">member</span> (<span class="keyword">mid</span> <span class="built_in">number</span>(<span class="number">5</span>),<span class="keyword">name</span> varchar2(<span class="number">50</span>) <span class="keyword">default</span> <span class="string">'无名氏'</span>,arg <span class="built_in">number</span>(<span class="number">3</span>),birthday <span class="built_in">date</span> <span class="keyword">default</span> <span class="keyword">sysdate</span>,note <span class="keyword">clob</span>);</span><br></pre></td></tr></table></figure>
+<p>②查看member表结构</p>
+<figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">desc</span> member；</span><br></pre></td></tr></table></figure>
+<p>③向member表中增加若干条测试数据</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">member</span>(<span class="keyword">mid</span>,<span class="keyword">name</span>,arg,birthday,note) <span class="keyword">values</span>(<span class="number">1</span>,<span class="string">'feifei'</span>,<span class="number">21</span>,<span class="keyword">to_date</span>(<span class="string">'1997-07-09'</span>,<span class="string">'yyyy-mm-dd'</span>),<span class="string">'员工'</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">member</span>;</span><br></pre></td></tr></table></figure>
+<p>3.数据<code>表的重命名</code></p>
+<blockquote>
+<p>数据字典：（数据对象一定在数据字典中）<br>①用户级别：user<em>*开头，指的是一个用户可以使用的数据字典<br>②管理员级别：dba</em><em>开头，指的是由数据管理员使用的数据字典<br>③全部级别：all_</em>开头，表示不管是用户还是管理员都可以使用</p>
+</blockquote>
+<p>将member表修改为mlueer表</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">rename</span> <span class="keyword">member</span> <span class="keyword">to</span> mluser;</span><br></pre></td></tr></table></figure>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> mluser;</span><br></pre></td></tr></table></figure>
+<p>4.<code>截断表</code><br>截断mluser表</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">truncate</span> <span class="keyword">table</span> mluser;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>执行完此命令后，mluser表中的数据被清空，所有的资源也被删除，剩下的只是一张空的mluser表</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>注：开发中使用的清空操作一共有两种：<br> delete from 表名称——清空数据<br> truncate table 表名称——截断表<br>截断表是oracle数据库特有的，在开发中使用清空数据是很危险的操作，最好不要使用</p>
+</blockquote>
+<p>5.<code>表的删除</code><br>删除myemp表</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> myemp;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注：表的创建和删除属于DDL操作</p>
+</blockquote>
+<p>6.<code>修改表结构</code></p>
+<blockquote>
+<p>在DDL定义中，对于数据库对象的操作主要有3种语法：<br>创建对象：create 对象类型 名称……<br>删除对象：drop 对象类型 名称……<br>修改对象：alter 对象类型 名称……</p>
+</blockquote>
+<p>定义数据库<code>创建脚本</code><br>1）.删除数据表</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> <span class="keyword">member</span> <span class="keyword">purge</span>;</span><br></pre></td></tr></table></figure>
+<p>2）.创建数据表 </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> <span class="keyword">member</span>(<span class="keyword">mid</span> <span class="built_in">number</span>,<span class="keyword">name</span> varchar2(<span class="number">50</span>));</span><br></pre></td></tr></table></figure>
+<p>3）.测试数据</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">member</span>(<span class="keyword">mid</span>,<span class="keyword">name</span>) <span class="keyword">values</span>(<span class="number">10</span>,<span class="string">'张三'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">member</span>(<span class="keyword">mid</span>,<span class="keyword">name</span>) <span class="keyword">values</span>(<span class="number">20</span>,<span class="string">'李四'</span>);</span><br></pre></td></tr></table></figure>
+<p>4）.事务提交</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">commit</span>；</span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">member</span>;</span><br></pre></td></tr></table></figure>
+<p>运行后的结果：<br><img src="http://img.blog.csdn.net/20180311151341953?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGlueWUxMjMw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>7.为表中<code>增加数据字段</code><br>向member表中增加三个数据字段</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> <span class="keyword">member</span> <span class="keyword">add</span>(age <span class="built_in">number</span>(<span class="number">3</span>));</span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> <span class="keyword">member</span> <span class="keyword">add</span>(sex varchar2(<span class="number">10</span>) <span class="keyword">default</span> <span class="string">'男'</span>);</span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> <span class="keyword">member</span> <span class="keyword">add</span>(photo varchar2(<span class="number">100</span>) <span class="keyword">default</span> <span class="string">'nophoto.jpg'</span>);</span><br></pre></td></tr></table></figure>
+<p>查看member表结构</p>
+<figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">desc</span> member；</span><br></pre></td></tr></table></figure>
+<p><img src="http://img.blog.csdn.net/20180311151424885?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGlueWUxMjMw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">member</span>;</span><br></pre></td></tr></table></figure>
+<p>8.<code>修改表中的字段</code><br>将name字段的长度修改为30，将sex字段的默认值修改为女</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> <span class="keyword">member</span> <span class="keyword">modify</span>(<span class="keyword">name</span> varchar2(<span class="number">30</span>));</span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> <span class="keyword">member</span> <span class="keyword">modify</span>(sex varchar2(<span class="number">3</span>) <span class="keyword">default</span> <span class="string">'女'</span>);</span><br></pre></td></tr></table></figure>
+<p>9.<code>删除表中的字段</code><br>删除member表中的photo和age字段</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> <span class="keyword">member</span> <span class="keyword">drop</span> <span class="keyword">column</span> photo;</span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> <span class="keyword">member</span> <span class="keyword">drop</span> <span class="keyword">column</span> age;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>总结：</strong><br>1.数据库中常见的数据类型为NUMBER,VARCHAR2,DATE,CLOB<br>2.表的创建使用CREATE TABLE语法完成，创建表时需要为表中定义若干个列，每个列可以通过DEFAULT 设置列的默认值<br>3.表的删除操作使用DROP TABLE语法来完成，但是从Oracle 10g开始，如果要彻底删除表，则应该加上PURGE配置<br>4.通过截断表操作可以立即释放表中所占用的全部资源</p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"># java</a>
+          
+            <a href="/tags/Oracle/" rel="tag"># Oracle</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/11/更新及事务处理/" rel="next" title="更新及事务处理">
+                <i class="fa fa-chevron-left"></i> 更新及事务处理
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMzI4MC85ODM3"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">feifei</p>
+              <p class="site-description motion-element" itemprop="description">坚持做最好的自己</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/feifeilover" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/u/5673876223" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/f45cebeb9a5c" target="_blank" title="简书">
+                      
+                        <i class="fa fa-fw fa-book"></i>简书</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://blog.csdn.net/xinye1230" target="_blank" title="csdn">
+                      
+                        <i class="fa fa-fw fa-crosshairs"></i>csdn</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+   <!--  <i class="fa fa-user"></i> -->
+  </span>
+  <span class="author" itemprop="copyrightHolder">feifei</span>
+
+  
+</div>
+
+
+  <!--<div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>  -->
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+ <!-- <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>  -->
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<!-- ҳ����С���� -->
+<script type="text/javascript" src="/js/src/love.js"></script>
