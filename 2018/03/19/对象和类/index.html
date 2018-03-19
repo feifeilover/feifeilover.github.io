@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="java,Oracle," />
+  <meta name="keywords" content="java," />
 
 
 
@@ -86,18 +86,22 @@
 
 
 
-<meta name="description" content="1.查询出公司每个月支出的月工资的总和 1select sum(sal) from emp; 2.查询出公司的最高工资，最低工资，平均工资 1select max(sal),min(sal),avg(sal),round(avg(sal),2) from emp; 3.统计出公司最早雇佣日期和最晚雇佣日期 1select min(hiredate) 最早雇佣时间,max(hiredate) 最晚雇">
-<meta name="keywords" content="java,Oracle">
+<meta name="description" content="前言：类与对象是面向对象设计的核心所在  1.对象1）定义：对象是事物存在的实体。如人类，书桌，计算机等。2）对象可以分为两部分：动态部分，静态部分。  ①静态部分，指的是不能动的部分，称之为属性。（如，一个人的高矮，胖瘦，年龄，性别）②动态部分，指的是事物所具备的动态行为，称为行为。（如，一个人可以哭，微笑，说话，走路等）  3）面向对象程序设计，要以对象来思考问题，将现实世界的实体抽象为对象">
+<meta name="keywords" content="java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="分组统计查询">
-<meta property="og:url" content="http://yoursite.com/2018/03/06/分组统计查询/index.html">
+<meta property="og:title" content="对象和类">
+<meta property="og:url" content="http://yoursite.com/2018/03/19/对象和类/index.html">
 <meta property="og:site_name" content="菲菲博客">
-<meta property="og:description" content="1.查询出公司每个月支出的月工资的总和 1select sum(sal) from emp; 2.查询出公司的最高工资，最低工资，平均工资 1select max(sal),min(sal),avg(sal),round(avg(sal),2) from emp; 3.统计出公司最早雇佣日期和最晚雇佣日期 1select min(hiredate) 最早雇佣时间,max(hiredate) 最晚雇">
+<meta property="og:description" content="前言：类与对象是面向对象设计的核心所在  1.对象1）定义：对象是事物存在的实体。如人类，书桌，计算机等。2）对象可以分为两部分：动态部分，静态部分。  ①静态部分，指的是不能动的部分，称之为属性。（如，一个人的高矮，胖瘦，年龄，性别）②动态部分，指的是事物所具备的动态行为，称为行为。（如，一个人可以哭，微笑，说话，走路等）  3）面向对象程序设计，要以对象来思考问题，将现实世界的实体抽象为对象">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-06T12:57:01.883Z">
+<meta property="og:image" content="http://img-blog.csdn.net/2018031920234380?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3hpbnllMTIzMA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="http://img-blog.csdn.net/2018031920390325?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3hpbnllMTIzMA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="http://img-blog.csdn.net/20180319205638176?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3hpbnllMTIzMA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:updated_time" content="2018-03-19T13:07:04.364Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="分组统计查询">
-<meta name="twitter:description" content="1.查询出公司每个月支出的月工资的总和 1select sum(sal) from emp; 2.查询出公司的最高工资，最低工资，平均工资 1select max(sal),min(sal),avg(sal),round(avg(sal),2) from emp; 3.统计出公司最早雇佣日期和最晚雇佣日期 1select min(hiredate) 最早雇佣时间,max(hiredate) 最晚雇">
+<meta name="twitter:title" content="对象和类">
+<meta name="twitter:description" content="前言：类与对象是面向对象设计的核心所在  1.对象1）定义：对象是事物存在的实体。如人类，书桌，计算机等。2）对象可以分为两部分：动态部分，静态部分。  ①静态部分，指的是不能动的部分，称之为属性。（如，一个人的高矮，胖瘦，年龄，性别）②动态部分，指的是事物所具备的动态行为，称为行为。（如，一个人可以哭，微笑，说话，走路等）  3）面向对象程序设计，要以对象来思考问题，将现实世界的实体抽象为对象">
+<meta name="twitter:image" content="http://img-blog.csdn.net/2018031920234380?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3hpbnllMTIzMA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
 
 
 
@@ -127,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/03/06/分组统计查询/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/03/19/对象和类/"/>
 
 
 
 
 
-  <title>分组统计查询 | 菲菲博客</title>
+  <title>对象和类 | 菲菲博客</title>
   
 
 
@@ -280,7 +284,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/06/分组统计查询/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/19/对象和类/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="feifei">
@@ -297,7 +301,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">分组统计查询</h1>
+          <h1 class="post-title" itemprop="name headline">对象和类</h1>
         
 
         <div class="post-meta">
@@ -309,8 +313,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-06T20:54:03+08:00">
-                2018-03-06
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-19T20:58:55+08:00">
+                2018-03-19
               </time>
             
 
@@ -332,8 +336,19 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Oracle/" itemprop="url" rel="index">
-                    <span itemprop="name">Oracle</span>
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/java面向对象/" itemprop="url" rel="index">
+                    <span itemprop="name">java面向对象</span>
                   </a>
                 </span>
 
@@ -369,37 +384,41 @@
       
 
       
-        <p>1.查询出公司每个月支出的月工资的总和</p>
-<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">sum</span>(sal) <span class="keyword">from</span> emp;</span><br></pre></td></tr></table></figure>
-<p>2.查询出公司的最高工资，最低工资，平均工资</p>
-<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">max</span>(sal),<span class="built_in">min</span>(sal),<span class="built_in">avg</span>(sal),<span class="built_in">round</span>(<span class="built_in">avg</span>(sal),<span class="number">2</span>) <span class="keyword">from</span> emp;</span><br></pre></td></tr></table></figure>
-<p>3.统计出公司最早雇佣日期和最晚雇佣日期</p>
-<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">min</span>(hiredate) 最早雇佣时间,<span class="built_in">max</span>(hiredate) 最晚雇用时间 <span class="keyword">from</span> emp;</span><br></pre></td></tr></table></figure>
-<p>4.统计出公司的雇员人数</p>
-<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(empno),<span class="built_in">count</span>(*) <span class="keyword">from</span> emp;</span><br></pre></td></tr></table></figure>
-<p>5.统计出每个部门的人数</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select deptno,count(*) <span class="keyword">from</span> emp<span class="built_in"> group </span>by deptno;</span><br></pre></td></tr></table></figure>
-<p>6.统计出每种职位的最低工资和最高工资</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select job,min(sal),max(sal) <span class="keyword">from</span> emp<span class="built_in"> group </span>by job;</span><br></pre></td></tr></table></figure>
-<p>7.求出每个部门平均工资最高的工资</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select max(avg(sal)) <span class="keyword">from</span> emp<span class="built_in"> group </span>by deptno;</span><br></pre></td></tr></table></figure>
-<p>8.查询每个部门的名称，部门人数，部门平均功能工资，平均服务年限</p>
-<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> d.dname,<span class="built_in">count</span>(<span class="built_in">e</span>.empno),<span class="built_in">round</span>(<span class="built_in">avg</span>(<span class="built_in">e</span>.sal),<span class="number">2</span>) 平均工资,<span class="built_in">round</span>(<span class="built_in">avg</span>(months_between(sysdate,hiredate)/<span class="number">12</span>),<span class="number">2</span>) 平均服务年限 <span class="keyword">from</span> dept d,emp <span class="built_in">e</span> <span class="keyword">where</span> <span class="built_in">e</span>.deptno=d.deptno <span class="keyword">group</span> <span class="keyword">by</span> d.dname;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>公司明明有4个部门但是只显示3个，是因为有一个部门没有雇员，因此需要使用右外连接</p>
+        <blockquote>
+<p>前言：类与对象是面向对象设计的核心所在</p>
 </blockquote>
-<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> d.dname,<span class="built_in">count</span>(<span class="built_in">e</span>.empno),<span class="built_in">round</span>(<span class="built_in">avg</span>(<span class="built_in">e</span>.sal),<span class="number">2</span>) 平均工资,<span class="built_in">round</span>(<span class="built_in">avg</span>(months_between(sysdate,hiredate)/<span class="number">12</span>),<span class="number">2</span>) 平均服务年限 <span class="keyword">from</span> dept d,emp <span class="built_in">e</span> <span class="keyword">where</span> <span class="built_in">e</span>.deptno(+)=d.deptno <span class="keyword">group</span> <span class="keyword">by</span> d.dname;</span><br></pre></td></tr></table></figure>
-<p>9.查询公司各个工资等级雇员的数量，平均工资</p>
-<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> s.grade,<span class="built_in">count</span>(<span class="built_in">e</span>.empno),<span class="built_in">round</span>(<span class="built_in">avg</span>(<span class="built_in">e</span>.sal),<span class="number">2</span>) <span class="keyword">from</span> emp <span class="built_in">e</span>,salgrade s <span class="keyword">where</span> <span class="built_in">e</span>.sal <span class="keyword">between</span> s.losal <span class="keyword">and</span> s.hisal <span class="keyword">group</span> <span class="keyword">by</span> s.grade;</span><br></pre></td></tr></table></figure>
-<p>10.HAVING子句<br>查询出所有平均工资大于2000元的职位信息，平均工资，雇员人数</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select job,round(avg(sal),2),count(empno) <span class="keyword">from</span> emp<span class="built_in"> group </span>by job having avg(sal)&gt;2000;</span><br></pre></td></tr></table></figure>
-<p>11.列出至少有一个员工的所有部门编号，名称，并统计这些部门的平均工资，最低工资，最高工资</p>
-<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> d.deptno,d.dname,<span class="built_in">round</span>(<span class="built_in">avg</span>(<span class="built_in">e</span>.sal),<span class="number">2</span>),<span class="built_in">min</span>(<span class="built_in">e</span>.sal),<span class="built_in">max</span>(<span class="built_in">e</span>.sal) <span class="keyword">from</span> emp <span class="built_in">e</span>,dept d <span class="keyword">where</span> <span class="built_in">e</span>.deptno=d.deptno <span class="keyword">group</span> <span class="keyword">by</span> d.deptno,d.dname,d.loc <span class="keyword">having</span> <span class="built_in">count</span>(<span class="built_in">e</span>.empno)&gt;<span class="number">1</span>;</span><br></pre></td></tr></table></figure>
-<p>12.显示非销售人员工作名称以及从事同一工作雇员的月工资的总和，并且要满足从事同一工作的雇员的月工资合计大于5000元，输出结果按月工资的合计升序排列</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> job,<span class="keyword">sum</span>(sal) <span class="keyword">sum</span> <span class="keyword">from</span> emp <span class="keyword">where</span> job&lt;&gt;<span class="string">'SALESMAN'</span> <span class="keyword">group</span> <span class="keyword">by</span> job <span class="keyword">having</span> <span class="keyword">sum</span>(sal)&gt;<span class="number">5000</span> <span class="keyword">order</span> <span class="keyword">by</span> <span class="keyword">sum</span> <span class="keyword">asc</span>；</span><br></pre></td></tr></table></figure>
+<p>1.对象<br>1）定义：对象是事物存在的实体。如人类，书桌，计算机等。<br>2）对象可以分为两部分：动态部分，静态部分。</p>
 <blockquote>
-<p>总结：<br>在SQL中主要提供了5种分组函数，分别是<code>count</code>,<code>avg</code>,<code>sum</code>,<code>min</code>,<code>max</code>函数<br>使用<code>group by</code>子句可以对数据进行分组操作，而使用having子句可以对分组之后的数据进行再次过滤。</p>
+<p>①<code>静态部分</code>，指的是不能动的部分，称之为<code>属性</code>。（如，一个人的高矮，胖瘦，年龄，性别）<br>②<code>动态部分</code>，指的是事物所具备的动态行为，称为<code>行为</code>。（如，一个人可以哭，微笑，说话，走路等）</p>
 </blockquote>
+<p>3）面向对象程序设计，要以对象来思考问题，将现实世界的实体抽象为对象，在考虑这个对象具备的属性和行为。<br>4）设计一个大雁对象<br><img src="//img-blog.csdn.net/2018031920234380?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3hpbnllMTIzMA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<p>2.类（<strong>要求：类名称首字母大写</strong>）<br>1）类实质上是封装对象属性和行为的载体，对象是类抽象出来的一个实例，反过来说具有相同属性和行为的一类实体称为类。<br>2）类指的是一个共性的概念，对象指的是一个具体的可以使用的事物。在实际开发之中一定是先产生类，在产生对象。类本身是引用类型。<br>3）类中的组成：方法（操作的行为），属性（变量，描述每一个对象的具体特点）。<br>4）类的定义：</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span>  </span>&#123;</span><br><span class="line">	属性；</span><br><span class="line">	属性；</span><br><span class="line">	……</span><br><span class="line">	方法()；</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注：所有的程序都要求以{}作为分隔符</p>
+</blockquote>
+<p>5）例：定义一个<code>Person类</code></p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Person</span></span><br><span class="line">&#123;</span><br><span class="line">	String name;  <span class="comment">//定义name属性</span></span><br><span class="line">	<span class="keyword">int</span> age;       <span class="comment">//定义age属性</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">info</span>(<span class="params"></span>) </span>&#123;   <span class="comment">//定义一个info方法</span></span><br><span class="line">		System.<span class="keyword">out</span>.println(<span class="string">"name="</span> + name + <span class="string">",age="</span> + age);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>类定义之后不可以直接使用，必须声明并实例化对象</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestDemo</span> </span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Person per = <span class="keyword">new</span> Person();  <span class="comment">//声明实例化对象per</span></span><br><span class="line">		per.name = <span class="string">"feifei"</span>;      <span class="comment">//对象.属性</span></span><br><span class="line">		per.age = <span class="number">22</span>;             <span class="comment">//对象.属性</span></span><br><span class="line">		per.info();               <span class="comment">//对象.方法</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>3.<strong>引用类型</strong>：内存空间的操作。</p>
+<blockquote>
+<p>内存空间分为两种：<br>①<code>堆内存空间</code>：保存真正的数据，保存的是对象的属性信息。<br>②<code>栈内存空间</code>：保存的堆内存的地址，堆内存操作权，保存的是对象名称。<br><code>new</code>：就是开辟新的<code>堆内存</code></p>
+</blockquote>
+<p>内存图:<br><img src="//img-blog.csdn.net/2018031920390325?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3hpbnllMTIzMA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<blockquote>
+<p>注：一个栈只能存一个堆内存地址</p>
+</blockquote>
+<p>4.对象的产生会有两种格式：1）先声明，再实例化；2）直接用new创建对象</p>
+<blockquote>
+<p>1) 所有的<code>引用数据类型（数组，类，接口）</code>必须在其开辟空间之后才能使用，如果使用了未开辟空间的数据类型会出现<code>NullPointerException</code>（对象没有实例化）<br>2)引用数据类型的最大特征在于<code>内存的分配</code>操作，而只要出现有关键词<code>new</code>就只有一个解释：<code>开辟内存</code>（内存是不可能无限开辟的，所以这个时候所谓的性能调优调整就是内存问题）<br>3)所有的对象只有实例化以后才可以使用</p>
+</blockquote>
+<p>5.<strong>引用传递</strong>：以后的开发之中都是引用传递</p>
+<p>内存图：<br><img src="//img-blog.csdn.net/20180319205638176?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L3hpbnllMTIzMA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<p>1）引用的本质就是引用别名，即一块堆内存可以被多个栈内存所指向</p>
+<p>2）所谓的<code>垃圾空间</code>指的就是没有任何栈内存指向的<code>堆内存空间</code>，所有的垃圾空间将不定期被java中的<code>垃圾收集器</code>进行回收以实现<code>内存空间的释放</code>，所以在开发过程中一定要控制好垃圾对象的产生</p>
 
       
     </div>
@@ -419,8 +438,6 @@
           
             <a href="/tags/java/" rel="tag"># java</a>
           
-            <a href="/tags/Oracle/" rel="tag"># Oracle</a>
-          
         </div>
       
 
@@ -432,8 +449,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/06/多表查询/" rel="next" title="多表查询">
-                <i class="fa fa-chevron-left"></i> 多表查询
+              <a href="/2018/03/11/表的创建与管理/" rel="next" title="表的创建与管理">
+                <i class="fa fa-chevron-left"></i> 表的创建与管理
               </a>
             
           </div>
@@ -441,10 +458,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/03/07/子查询语句/" rel="prev" title="子查询语句">
-                子查询语句 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
