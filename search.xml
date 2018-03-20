@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[构造方法]]></title>
+    <url>%2F2018%2F03%2F20%2F%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[构造方法与匿名对象1.实例化对象的产生格式： ①类名称 ②对象名称 = ③new ④类名称（）；①类名称：任何的对象都应该有其对应的类，没有类就不知道对象具备的功能②对象名称：是一个唯一的标记，表示的是操作属性的标记③new：表示开辟新的堆内存空间④类名称（）：其实就是一个构造方法 构造方法是在使用new实例化新对象的时候来进行调用的操作方法。2.构造方法定义的规则： 方法名称必须与类名称相同，并且构造方法没有返回值类型声明，同时一个类中一定至少存在一个构造方法。如果类中没有明确定义任何一个构造方法，系统将自动生成一个无参的，什么都不做的构造方法。 例①：定义一个无参的构造方法（构造方法在new时被调用）在前面写的person类中添加一个无参的构造函数，然后运行看一下运行结果123public Person() &#123; System.out.println("*********");&#125; *********name=小明,age=20 先执行无参构造函数中的，说明构造函数在new时被调用注：构造函数名称与类名称相同，并且没有返回值类型声明，如果类中不写此定义系统也会自动生成一个无参构造函数。 类中的组成：属性，普通方法，构造方法属性是在对象开辟堆内存的时候就开辟的空间构造方法是在使用关键字new同时调用的普通方法是在对象已经实例化完成（即空间开辟了，构造方法执行了）再调用，可以调用多次。 例②：类中定义一个有参构造函数123456789101112131415161718192021222324252627282930313233343536class Person &#123; private String name; private int age; public Person() &#123; System.out.println("*********"); &#125; public Person(String n,int a) &#123; name = n; setAge(a); &#125; public void setName(String n) &#123; name = n; &#125; public void setAge(int a) &#123; age = a; &#125; public String getName() &#123; return name; &#125; public int getAge() &#123; return age; &#125; public void info() &#123; System.out.println("name=" + name + ",age=" + age); &#125;&#125;public class TestDemo &#123; public static void main(String[] args) &#123; Person per = new Person("小明",20); per.info(); &#125;&#125; 注：定义有参构造函数以后，默认的无参构造函数将不会在编译时自动生成。 3.构造方法作用： 1）利用构造方法设置类中的属性内容。构造方法可以为类中的属性进行初始化。2）通过构造方法设置内容，可以避免重复的setter调用。setter除了设置内容以外，也可以承担修改数据的操作构造方法是方法可以进行重载，但构造方法名称是类名称不能修改，因此，只能实现参数的类型或个数不同这一特点。 以上例②的代码就是构成了构造方法的重载。 类定义的基本要求：①属性②构造方法③普通方法构造方法要按照参数的个数升序或降序排列。 4.匿名对象1如：new Person("张三",30).info(); 匿名对象不会有任何的栈空间所指向，所以使用一次就会成为垃圾。]]></content>
+      <categories>
+        <category>java</category>
+        <category>java面向对象</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[private关键字]]></title>
     <url>%2F2018%2F03%2F20%2Fprivate%E5%85%B3%E9%94%AE%E5%AD%97%2F</url>
     <content type="text"><![CDATA[面向对象的三大特征：封装，继承，多态。封装：将对象的属性和行为封装起来，封装的思想保证了类内部数据结构的完整性。 1.private实现封装处理：(内部的操作对外部不可见，利用private关键字实现。)①例：利用private来实现封装1234class Person &#123; private String name; private int age; &#125; 类中的属性和方法都可以用private来修饰，但是修饰方法很少见。 2.setter,getter方法(private 声明之后属性安全了，但外部无法直接操作了，要进行private属性的访问，可以使用setter，getter方法。) setter方法：主要是用于进行属性内容的设置。getter方法：主要是用于进行属性内容的取得。 ②例：扩展person类的内容（添加setter，getter方法）12345678910111213141516171819202122232425262728class Person &#123; private String name; private int age; public void setName(String n) &#123; name = n; &#125; public void setAge(int a) &#123; age = a; &#125; public String getName() &#123; return name; &#125; public int getAge() &#123; return age; &#125; public void info() &#123; System.out.println("name=" + name + ",age=" + age); &#125;&#125;public class TestDemo &#123; public static void main(String[] args) &#123; Person per = new Person(); per.setName("小明"); per.setAge(20); per.info(); &#125;&#125; 类的设计原则： 1）类中的所有属性必须使用private进行封装，使用private封装的属性如果需要被外部所使用，就需要写相应的setter或getter方法。2）private实现封装的最大特点：只允许本类访问，不允许外部访问。]]></content>
@@ -128,8 +140,8 @@
         <category>Jsp</category>
       </categories>
       <tags>
-        <tag>java</tag>
         <tag>Jsp</tag>
+        <tag>java</tag>
       </tags>
   </entry>
   <entry>
@@ -141,8 +153,8 @@
         <category>正则表达式</category>
       </categories>
       <tags>
-        <tag>javascript</tag>
         <tag>java</tag>
+        <tag>javascript</tag>
         <tag>正则表达式</tag>
       </tags>
   </entry>
@@ -154,8 +166,8 @@
         <category>JavaScript</category>
       </categories>
       <tags>
-        <tag>javascript</tag>
         <tag>java</tag>
+        <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -166,8 +178,8 @@
         <category>JavaScript</category>
       </categories>
       <tags>
-        <tag>javascript</tag>
         <tag>java</tag>
+        <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -178,8 +190,8 @@
         <category>JavaScript</category>
       </categories>
       <tags>
-        <tag>javascript</tag>
         <tag>java</tag>
+        <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -190,8 +202,8 @@
         <category>JavaScript</category>
       </categories>
       <tags>
-        <tag>javascript</tag>
         <tag>java</tag>
+        <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -202,8 +214,8 @@
         <category>JavaScript</category>
       </categories>
       <tags>
-        <tag>javascript</tag>
         <tag>java</tag>
+        <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -214,8 +226,8 @@
         <category>JavaScript</category>
       </categories>
       <tags>
-        <tag>javascript</tag>
         <tag>java</tag>
+        <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -226,8 +238,8 @@
         <category>JavaScript</category>
       </categories>
       <tags>
-        <tag>javascript</tag>
         <tag>java</tag>
+        <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -238,8 +250,8 @@
         <category>JavaScript</category>
       </categories>
       <tags>
-        <tag>javascript</tag>
         <tag>java</tag>
+        <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -250,8 +262,8 @@
         <category>JavaScript</category>
       </categories>
       <tags>
-        <tag>javascript</tag>
         <tag>java</tag>
+        <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -262,8 +274,8 @@
         <category>JavaScript</category>
       </categories>
       <tags>
-        <tag>javascript</tag>
         <tag>java</tag>
+        <tag>javascript</tag>
       </tags>
   </entry>
 </search>
