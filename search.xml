@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[private关键字]]></title>
+    <url>%2F2018%2F03%2F20%2Fprivate%E5%85%B3%E9%94%AE%E5%AD%97%2F</url>
+    <content type="text"><![CDATA[面向对象的三大特征：封装，继承，多态。封装：将对象的属性和行为封装起来，封装的思想保证了类内部数据结构的完整性。 1.private实现封装处理：(内部的操作对外部不可见，利用private关键字实现。)①例：利用private来实现封装1234class Person &#123; private String name; private int age; &#125; 类中的属性和方法都可以用private来修饰，但是修饰方法很少见。 2.setter,getter方法(private 声明之后属性安全了，但外部无法直接操作了，要进行private属性的访问，可以使用setter，getter方法。) setter方法：主要是用于进行属性内容的设置。getter方法：主要是用于进行属性内容的取得。 ②例：扩展person类的内容（添加setter，getter方法）12345678910111213141516171819202122232425262728class Person &#123; private String name; private int age; public void setName(String n) &#123; name = n; &#125; public void setAge(int a) &#123; age = a; &#125; public String getName() &#123; return name; &#125; public int getAge() &#123; return age; &#125; public void info() &#123; System.out.println("name=" + name + ",age=" + age); &#125;&#125;public class TestDemo &#123; public static void main(String[] args) &#123; Person per = new Person(); per.setName("小明"); per.setAge(20); per.info(); &#125;&#125; 类的设计原则： 1）类中的所有属性必须使用private进行封装，使用private封装的属性如果需要被外部所使用，就需要写相应的setter或getter方法。2）private实现封装的最大特点：只允许本类访问，不允许外部访问。]]></content>
+      <categories>
+        <category>java</category>
+        <category>java面向对象</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[对象和类]]></title>
     <url>%2F2018%2F03%2F19%2F%E5%AF%B9%E8%B1%A1%E5%92%8C%E7%B1%BB%2F</url>
     <content type="text"><![CDATA[前言：类与对象是面向对象设计的核心所在 1.对象1）定义：对象是事物存在的实体。如人类，书桌，计算机等。2）对象可以分为两部分：动态部分，静态部分。 ①静态部分，指的是不能动的部分，称之为属性。（如，一个人的高矮，胖瘦，年龄，性别）②动态部分，指的是事物所具备的动态行为，称为行为。（如，一个人可以哭，微笑，说话，走路等） 3）面向对象程序设计，要以对象来思考问题，将现实世界的实体抽象为对象，在考虑这个对象具备的属性和行为。4）设计一个大雁对象 2.类（要求：类名称首字母大写）1）类实质上是封装对象属性和行为的载体，对象是类抽象出来的一个实例，反过来说具有相同属性和行为的一类实体称为类。2）类指的是一个共性的概念，对象指的是一个具体的可以使用的事物。在实际开发之中一定是先产生类，在产生对象。类本身是引用类型。3）类中的组成：方法（操作的行为），属性（变量，描述每一个对象的具体特点）。4）类的定义： 123456class &#123; 属性； 属性； …… 方法()；&#125; 注：所有的程序都要求以{}作为分隔符 5）例：定义一个Person类 12345678class Person&#123; String name; //定义name属性 int age; //定义age属性 public void info() &#123; //定义一个info方法 System.out.println("name=" + name + ",age=" + age); &#125;&#125; 类定义之后不可以直接使用，必须声明并实例化对象 123456789public class TestDemo &#123; public static void main(String[] args) &#123; Person per = new Person(); //声明实例化对象per per.name = "feifei"; //对象.属性 per.age = 22; //对象.属性 per.info(); //对象.方法 &#125;&#125; 3.引用类型：内存空间的操作。 内存空间分为两种：①堆内存空间：保存真正的数据，保存的是对象的属性信息。②栈内存空间：保存的堆内存的地址，堆内存操作权，保存的是对象名称。new：就是开辟新的堆内存 内存图: 注：一个栈只能存一个堆内存地址 4.对象的产生会有两种格式：1）先声明，再实例化；2）直接用new创建对象 1) 所有的引用数据类型（数组，类，接口）必须在其开辟空间之后才能使用，如果使用了未开辟空间的数据类型会出现NullPointerException（对象没有实例化）2)引用数据类型的最大特征在于内存的分配操作，而只要出现有关键词new就只有一个解释：开辟内存（内存是不可能无限开辟的，所以这个时候所谓的性能调优调整就是内存问题）3)所有的对象只有实例化以后才可以使用 5.引用传递：以后的开发之中都是引用传递 内存图： 1）引用的本质就是引用别名，即一块堆内存可以被多个栈内存所指向 2）所谓的垃圾空间指的就是没有任何栈内存指向的堆内存空间，所有的垃圾空间将不定期被java中的垃圾收集器进行回收以实现内存空间的释放，所以在开发过程中一定要控制好垃圾对象的产生]]></content>
@@ -116,8 +128,8 @@
         <category>Jsp</category>
       </categories>
       <tags>
-        <tag>Jsp</tag>
         <tag>java</tag>
+        <tag>Jsp</tag>
       </tags>
   </entry>
   <entry>
@@ -129,8 +141,8 @@
         <category>正则表达式</category>
       </categories>
       <tags>
-        <tag>java</tag>
         <tag>javascript</tag>
+        <tag>java</tag>
         <tag>正则表达式</tag>
       </tags>
   </entry>
@@ -142,8 +154,8 @@
         <category>JavaScript</category>
       </categories>
       <tags>
-        <tag>java</tag>
         <tag>javascript</tag>
+        <tag>java</tag>
       </tags>
   </entry>
   <entry>
@@ -154,8 +166,8 @@
         <category>JavaScript</category>
       </categories>
       <tags>
-        <tag>java</tag>
         <tag>javascript</tag>
+        <tag>java</tag>
       </tags>
   </entry>
   <entry>
@@ -166,8 +178,8 @@
         <category>JavaScript</category>
       </categories>
       <tags>
-        <tag>java</tag>
         <tag>javascript</tag>
+        <tag>java</tag>
       </tags>
   </entry>
   <entry>
@@ -178,8 +190,8 @@
         <category>JavaScript</category>
       </categories>
       <tags>
-        <tag>java</tag>
         <tag>javascript</tag>
+        <tag>java</tag>
       </tags>
   </entry>
   <entry>
@@ -190,8 +202,8 @@
         <category>JavaScript</category>
       </categories>
       <tags>
-        <tag>java</tag>
         <tag>javascript</tag>
+        <tag>java</tag>
       </tags>
   </entry>
   <entry>
@@ -202,8 +214,8 @@
         <category>JavaScript</category>
       </categories>
       <tags>
-        <tag>java</tag>
         <tag>javascript</tag>
+        <tag>java</tag>
       </tags>
   </entry>
   <entry>
@@ -214,8 +226,8 @@
         <category>JavaScript</category>
       </categories>
       <tags>
-        <tag>java</tag>
         <tag>javascript</tag>
+        <tag>java</tag>
       </tags>
   </entry>
   <entry>
@@ -226,8 +238,8 @@
         <category>JavaScript</category>
       </categories>
       <tags>
-        <tag>java</tag>
         <tag>javascript</tag>
+        <tag>java</tag>
       </tags>
   </entry>
   <entry>
@@ -238,8 +250,8 @@
         <category>JavaScript</category>
       </categories>
       <tags>
-        <tag>java</tag>
         <tag>javascript</tag>
+        <tag>java</tag>
       </tags>
   </entry>
   <entry>
@@ -250,8 +262,8 @@
         <category>JavaScript</category>
       </categories>
       <tags>
-        <tag>java</tag>
         <tag>javascript</tag>
+        <tag>java</tag>
       </tags>
   </entry>
 </search>
