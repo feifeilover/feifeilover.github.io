@@ -86,18 +86,18 @@
 
 
 
-<meta name="description" content="构造方法与匿名对象1.实例化对象的产生格式：  类名称 对象名称 = new 类名称（）；类名称：任何的对象都应该有其对应的类对象名称：类的一个实例new：表示开辟新的堆内存空间类名称（）：构造方法  解析：构造器是一个类创建对象的根本途径，java语言通过new关键字来调用构造器，从而返回一个该类的实例。 2.构造方法用法：123public Car() &amp;#123;  //(无参数，无返回值)">
+<meta name="description" content="1.继承的实现123456789101112131415161718192021222324252627282930313233343536373839404142class Person&amp;#123;	private String name;	private int age;	public void setName(String name) &amp;#123;		this.name = name;	&amp;#">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="构造方法">
-<meta property="og:url" content="http://yoursite.com/2018/03/20/构造方法/index.html">
+<meta property="og:title" content="extends继承">
+<meta property="og:url" content="http://yoursite.com/2018/04/01/extends继承/index.html">
 <meta property="og:site_name" content="菲菲博客">
-<meta property="og:description" content="构造方法与匿名对象1.实例化对象的产生格式：  类名称 对象名称 = new 类名称（）；类名称：任何的对象都应该有其对应的类对象名称：类的一个实例new：表示开辟新的堆内存空间类名称（）：构造方法  解析：构造器是一个类创建对象的根本途径，java语言通过new关键字来调用构造器，从而返回一个该类的实例。 2.构造方法用法：123public Car() &amp;#123;  //(无参数，无返回值)">
+<meta property="og:description" content="1.继承的实现123456789101112131415161718192021222324252627282930313233343536373839404142class Person&amp;#123;	private String name;	private int age;	public void setName(String name) &amp;#123;		this.name = name;	&amp;#">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-21T09:07:02.746Z">
+<meta property="og:updated_time" content="2018-04-01T13:45:38.197Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="构造方法">
-<meta name="twitter:description" content="构造方法与匿名对象1.实例化对象的产生格式：  类名称 对象名称 = new 类名称（）；类名称：任何的对象都应该有其对应的类对象名称：类的一个实例new：表示开辟新的堆内存空间类名称（）：构造方法  解析：构造器是一个类创建对象的根本途径，java语言通过new关键字来调用构造器，从而返回一个该类的实例。 2.构造方法用法：123public Car() &amp;#123;  //(无参数，无返回值)">
+<meta name="twitter:title" content="extends继承">
+<meta name="twitter:description" content="1.继承的实现123456789101112131415161718192021222324252627282930313233343536373839404142class Person&amp;#123;	private String name;	private int age;	public void setName(String name) &amp;#123;		this.name = name;	&amp;#">
 
 
 
@@ -127,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/03/20/构造方法/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/04/01/extends继承/"/>
 
 
 
 
 
-  <title>构造方法 | 菲菲博客</title>
+  <title>extends继承 | 菲菲博客</title>
   
 
 
@@ -280,7 +280,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/20/构造方法/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/01/extends继承/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="feifei">
@@ -297,7 +297,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">构造方法</h1>
+          <h1 class="post-title" itemprop="name headline">extends继承</h1>
         
 
         <div class="post-meta">
@@ -309,8 +309,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-20T21:45:40+08:00">
-                2018-03-20
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-01T21:44:27+08:00">
+                2018-04-01
               </time>
             
 
@@ -380,42 +380,17 @@
       
 
       
-        <p><strong>构造方法与匿名对象</strong><br>1.实例化对象的产生格式：</p>
+        <p><strong>1.继承的实现</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> String name;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.name;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(<span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.age = age;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.age;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">extends</span> <span class="title">Person</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> String school;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setSchool</span><span class="params">(String school)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.school = school;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getSchool</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.school;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExtendsDemo</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Student stu = <span class="keyword">new</span> Student();</span><br><span class="line">		stu.setName(<span class="string">"张三"</span>);</span><br><span class="line">		stu.setAge(<span class="number">10</span>);</span><br><span class="line">		stu.setSchool(<span class="string">"啦啦啦"</span>);</span><br><span class="line">		System.out.println(<span class="string">"姓名为:"</span> + stu.getName() + <span class="string">",年龄为:"</span> + stu.getAge() + <span class="string">",学校为:"</span> + stu.getSchool());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <blockquote>
-<p><code>类名称 对象名称 = new 类名称（）；</code><br>类名称：任何的对象都应该有其对应的类<br>对象名称：类的一个实例<br>new：表示开辟新的堆内存空间<br>类名称（）：构造方法</p>
+<p>子类可以直接将父类的操作继续使用，属于代码重用<br>子类可以继续扩充属于自己的标准</p>
 </blockquote>
-<p><strong>解析</strong>：<code>构造器</code>是一个类创建对象的根本途径，java语言通过<code>new</code>关键字来<code>调用</code>构造器，从而返回一个该类的<code>实例</code>。</p>
-<p>2.构造方法用法：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Car</span><span class="params">()</span> </span>&#123;  <span class="comment">//(无参数，无返回值)</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>3.构造方法定义的规则：</p>
+<p><strong>2.继承的限制</strong></p>
 <blockquote>
-<p>①通过<code>new</code>来调用；<br>②不用定义<code>返回值类型</code>；<br>③构造方法的方法名称必须与<code>类名称一致</code>；<br>④如果不加构造方法，系统会自<code>动加一个无参的</code>构造方法；如果已经写了构造方法，系统将<code>不会为该类提供</code>构造方法；</p>
-</blockquote>
-<p>4.例①：定义一个无参的构造方法（构造方法在new时被调用）<br>在前面写的person类中添加一个无参的构造函数，然后运行看一下运行结果<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	System.<span class="keyword">out</span>.println(<span class="string">"*********"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p><code>*********</code><br>name=小明,age=20</p>
-</blockquote>
-<p>先执行无参构造函数中的，说明构造函数<code>在new时被调用</code></p>
-<p>5.例②：类中定义一个有参构造函数<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Person</span> &#123;</span><br><span class="line">	<span class="keyword">private</span> String name;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		System.<span class="keyword">out</span>.println(<span class="string">"*********"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Person</span>(<span class="params">String n,<span class="keyword">int</span> a</span>) </span>&#123;</span><br><span class="line">		name = n;</span><br><span class="line">		setAge(a);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span>(<span class="params">String n</span>) </span>&#123;</span><br><span class="line">		name = n;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span>(<span class="params"><span class="keyword">int</span> a</span>) </span>&#123;</span><br><span class="line">		age = a;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getName</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> name;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> age;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">info</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		System.<span class="keyword">out</span>.println(<span class="string">"name="</span> + name + <span class="string">",age="</span> + age);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">TestDemo</span> &#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span>(<span class="params">String[] args</span>) </span>&#123;</span><br><span class="line">		Person per = <span class="keyword">new</span> Person(<span class="string">"小明"</span>,<span class="number">20</span>);</span><br><span class="line">		per.info();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>注：定义有参构造函数以后，默认的无参构造函数将不会在编译时自动生成。</p>
-<hr>
-<p><strong>类中的组成：属性，普通方法，构造方法</strong><br><code>属性</code>在对象开辟堆内存的时候开辟的空间<br><code>构造方法</code>在使用关键字new同时调用<br><code>普通方法</code>在对象已经实例化完成（即空间开辟了，构造方法执行了）再调用，可以调用多次。</p>
-</blockquote>
-<p>6.<strong>构造方法作用：</strong></p>
-<blockquote>
-<p>1）构造该类的对象，通常用来初始化对象的属性。<br>2）构造方法是方法可以进行重载，只能实现参数的类型或个数不同这一特点。</p>
-</blockquote>
-<p>以上例②的代码就是构成了构造方法的重载。</p>
-<blockquote>
-<p>类定义的基本要求：<br>①属性②构造方法③普通方法<br>构造方法要按照参数的个数升序或降序排列。</p>
-</blockquote>
-<p>7.<strong>匿名对象</strong></p>
-<blockquote>
-<p>匿名对象的应用场景<br>       A:调用方法，仅仅只调用一次的时候<br>       B:匿名对象可以作为实际参数传递 </p>
-</blockquote>
-<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">如：<span class="keyword">new</span> <span class="type">Person</span>(<span class="string">"张三"</span>,<span class="number">30</span>).info();</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>匿名对象不会有任何的栈空间所指向，匿名对象调用一次之后就是垃圾，可以被垃圾回收器回收 。</p>
+<p>①：在子类对象构造之前一定会默认调用父类的构造，父类的对象先实例化，然后在实例化子类对象。<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">A</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">A</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		System.<span class="keyword">out</span>.println(<span class="string">"A类的构造方法"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title">B</span> <span class="title">extends</span> <span class="title">A</span></span><br><span class="line">&#123;	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">B</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		System.<span class="keyword">out</span>.println(<span class="string">"B类的构造方法"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ExtendsDemo</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span>(<span class="params">String[] args</span>) </span>&#123;</span><br><span class="line">		<span class="keyword">new</span> B();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;-----&gt;运行结果:</span><br><span class="line">A类的构造方法</span><br><span class="line">B类的构造方法</span><br></pre></td></tr></table></figure></p>
+<p>②子类在继承父类的时候会继承父类的全部操作，私有操作属于隐式操作，非私有操作属于显示操作。<br><code>隐式操作</code>：通过setter，getter方法调用<br><code>显示操作</code>：可以直接调用<br><figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">String</span> msg;</span><br><span class="line">	<span class="keyword">public</span> void setMsg(<span class="keyword">String</span> msg) &#123;</span><br><span class="line">		<span class="built_in">this</span>.msg = msg;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">String</span> getMsg() &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="built_in">this</span>.msg;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword"><span class="keyword">extends</span> <span class="type">A</span></span></span></span><br><span class="line"><span class="class"></span>&#123;	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExtendsDemo</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> void main(<span class="keyword">String</span>[] args) &#123;</span><br><span class="line">		B b = <span class="keyword">new</span> <span class="type">B</span>();</span><br><span class="line">		b.setMsg(<span class="string">"Hello"</span>);   <span class="comment">//不能直接调用</span></span><br><span class="line">		System.out.println(b.getMsg());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;----&gt;Hello</span><br></pre></td></tr></table></figure></p>
+<p>③java不允许多重继承，但是允许多层继承<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span> </span>&#123;&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span> <span class="keyword">extends</span> <span class="title">B</span> </span>&#123;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>④使用super():这个目前还不太懂</p>
+<p><strong>总结</strong>：利用继承可以解决代码重用<br>子类实例化前一定要先实例化父类构造<br>java不允许多重继承，但允许多层继承<br>super调用父类构造（目前不会）</p>
 </blockquote>
 
       
@@ -447,8 +422,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/20/private关键字/" rel="next" title="private关键字">
-                <i class="fa fa-chevron-left"></i> private关键字
+              <a href="/2018/04/01/static关键字/" rel="next" title="static关键字">
+                <i class="fa fa-chevron-left"></i> static关键字
               </a>
             
           </div>
@@ -456,10 +431,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/03/23/String类基本/" rel="prev" title="String类基本">
-                String类基本 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
