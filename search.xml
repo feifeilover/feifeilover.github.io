@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[读书笔记——static 构造器 this]]></title>
+    <url>%2F2018%2F04%2F23%2F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94static-%E6%9E%84%E9%80%A0%E5%99%A8-this%2F</url>
+    <content type="text"><![CDATA[1 .引用类型包括：类，接口和数组类型，null类型。2 .修饰符6个：public private protected final abstract static3 .static可用于修饰方法，成员变量。static修饰的成员表示它属于该类本身①通常把static修饰的变量和方法称为=&gt;类变量，类方法②通过把不用static修饰的变量和方法称为=&gt;实例变量，实例方法4 .静态成员不能直接访问非静态成员5 .有static修饰的成员属于类本身，没有static修饰的成员属于该类的实例6 .实际上，类的构造器是有返回值的，当使用new关键字来调用构造器时，构造器返回该类的实例，可以把这个类的实例当成构造器的返回值，因此构造器的返回值类型总是当前类。7 .没有static修饰的就用实例调用，有static修饰的就用类直接调用。8 .堆内存保存每一个对象的属性，存放真正的类的对象栈内存保存每一个对象的名字，存放的是地址栈内存中的变量实际上只是一个引用，它指向实际的类的对象9 .this所代表的对象是不确定的，但它的类型是确定的，它所代表的只能是当前类的实例10 .static修饰的方法中不能使用this调用static修饰的方法不能访问不使用static修饰的普通成员静态成员不能直接访问非静态成员11 .不要使用对象去调用static修饰的成员变量，方法12 .如果确实需要在静态方法中访问另一个普通方法，则只能重新创建一个对象（匿名类.方法）]]></content>
+      <categories>
+        <category>java</category>
+        <category>java面向对象</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[extends继承]]></title>
     <url>%2F2018%2F04%2F01%2Fextends%E7%BB%A7%E6%89%BF%2F</url>
     <content type="text"><![CDATA[1.继承的实现123456789101112131415161718192021222324252627282930313233343536373839404142class Person&#123; private String name; private int age; public void setName(String name) &#123; this.name = name; &#125; public String getName() &#123; return this.name; &#125; public void setAge(int age) &#123; this.age = age; &#125; public int getAge() &#123; return this.age; &#125;&#125;class Student extends Person&#123; private String school; public void setSchool(String school) &#123; this.school = school; &#125; public String getSchool() &#123; return this.school; &#125;&#125;public class ExtendsDemo&#123; public static void main(String[] args) &#123; Student stu = new Student(); stu.setName("张三"); stu.setAge(10); stu.setSchool("啦啦啦"); System.out.println("姓名为:" + stu.getName() + ",年龄为:" + stu.getAge() + ",学校为:" + stu.getSchool()); &#125;&#125; 子类可以直接将父类的操作继续使用，属于代码重用子类可以继续扩充属于自己的标准 2.继承的限制 ①：在子类对象构造之前一定会默认调用父类的构造，父类的对象先实例化，然后在实例化子类对象。12345678910111213141516171819202122class A&#123; public A() &#123; System.out.println("A类的构造方法"); &#125;&#125;class B extends A&#123; public B() &#123; System.out.println("B类的构造方法"); &#125;&#125;public class ExtendsDemo&#123; public static void main(String[] args) &#123; new B(); &#125;&#125;-----&gt;运行结果:A类的构造方法B类的构造方法 ②子类在继承父类的时候会继承父类的全部操作，私有操作属于隐式操作，非私有操作属于显示操作。隐式操作：通过setter，getter方法调用显示操作：可以直接调用1234567891011121314151617181920212223class A&#123; private String msg; public void setMsg(String msg) &#123; this.msg = msg; &#125; public String getMsg() &#123; return this.msg; &#125;&#125;class B extends A&#123; &#125;public class ExtendsDemo&#123; public static void main(String[] args) &#123; B b = new B(); b.setMsg("Hello"); //不能直接调用 System.out.println(b.getMsg()); &#125;&#125;----&gt;Hello ③java不允许多重继承，但是允许多层继承123class A&#123;&#125;class B extends A &#123;&#125;class C extends B &#123;&#125; ④使用super():这个目前还不太懂 总结：利用继承可以解决代码重用子类实例化前一定要先实例化父类构造java不允许多重继承，但允许多层继承super调用父类构造（目前不会）]]></content>
